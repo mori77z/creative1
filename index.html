@@ -21,28 +21,26 @@
         scroll-behavior: smooth;
         padding: 10px;
     }
-    .tab {
-        display: inline-block;
-        padding: 10px 20px;
-        cursor: pointer;
-        background-color: transparent;
-        color: transparent;
-        flex-shrink: 0;
-    }
-    .tab.active {
-        font-family: 'Pinyon Script', cursive;
-        font-size: 24px;
-        color: black;
-        text-decoration: underline;
-    }
-    .tab-content {
-        display: none;
-        text-align: center;
-        position: relative;
-    }
-    .tab-content.active-content {
-        display: block;
-    }
+.tab {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.tab.active {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 24px;
+    text-decoration: underline;
+    color: black;
+}
+
+.tab:hover {
+    font-style: italic;
+}
+
     .arrow-container {
         display: flex;
         justify-content: space-between;
@@ -53,14 +51,14 @@
     }
     .arrow {
         cursor: pointer;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: transparent;
         color: white;
         padding: 10px;
         font-size: 20px;
         border-radius: 50%;
     }
     .arrow:hover {
-        background-color: rgba(0, 0, 0, 0.7);
+scale: 1.5;
     }
     .image-container img {
         width: 100%;
