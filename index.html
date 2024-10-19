@@ -5,70 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinterest Image Gallery with Carousels</title>
     <style>
-        body {
-            font-family: 'DM Sans', sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
+<style>
+    body {
+        font-family: 'DM Sans', sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    .tab-container {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scroll-behavior: smooth;
+        padding: 10px;
+    }
+    .tab {
+        display: inline-block;
+        padding: 10px 20px;
+        cursor: pointer;
+        background-color: transparent;
+        color: transparent;
+        flex-shrink: 0;
+    }
+    .tab.active {
+        font-family: 'Pinyon Script', cursive;
+        font-size: 24px;
+        color: black;
+        text-decoration: underline;
+    }
+    .tab-content {
+        display: none;
+        text-align: center;
+        position: relative;
+    }
+    .tab-content.active-content {
+        display: block;
+    }
+    .arrow-container {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        padding: 0 20px;
+    }
+    .arrow {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 50%;
+    }
+    .arrow:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    .image-container img {
+        width: 100%;
+        max-width: 600px;
+        display: none;
+        margin: 0 auto;
+    }
+    .image-container img.active-image {
+        display: block;
+    }
+    .gallery-container {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    
+    /* For smaller screens */
+    @media (max-width: 768px) {
         .tab-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
+            flex-wrap: nowrap;
         }
         .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            border: none;
-            background-color: transparent;
-            color: transparent;
-        }
-        .tab.active {
-            font-family: 'Pinyon Script', cursive;
-            font-size: 24px;
-            color: black;
-            text-decoration: underline;
-        }
-        .tab-content {
-            display: none;
-            text-align: center;
-            position: relative;
-        }
-        .tab-content.active-content {
-            display: block;
-        }
-        .arrow-container {
-            display: flex;
-            justify-content: space-between;
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            padding: 0 20px;
-        }
-        .arrow {
-            cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
             padding: 10px;
-            font-size: 20px;
-            border-radius: 50%;
+            font-size: 18px;
         }
-        .arrow:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-        .image-container img {
-            width: 100%;
-            max-width: 600px;
-            display: none;
-            margin: 0 auto;
-        }
-        .image-container img.active-image {
-            display: block;
-        }
-        .gallery-container {
-            position: relative;
-            margin-bottom: 20px;
-        }
+    }
+</style>
     </style>
 </head>
 <body>
