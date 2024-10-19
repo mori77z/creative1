@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moritz Gauss - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+    <style>
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          font-family: 'DM Sans', sans-serif;
+        }
+
+        body {
+          position: relative;
+          color: #000;
+          background: none;
+        }
+
+        body::before {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url('https://raw.githubusercontent.com/mori77z/home/refs/heads/main/material/rgbcloudsbg.gif') no-repeat center center fixed;
+          background-size: 100% 100%;
+          opacity: 0.6;
+          z-index: -1;
+        }
+
+        header {
+          text-align: left;
+          padding: 20px;
+        }
+
+        header h1 {
+          font-family: 'Snell Roundhand', cursive;
+          font-size: 6em;
+          line-height: 0.75em;
+          margin: 0;
+        }
+
+        header p {
+          font-size: 1.25em;
+          margin: 10px 0;
+        }
+
+        #messageButton {
+          font-style: normal;
+          cursor: pointer;
+          background-color: transparent;
+          border: none;
+          font-size: 1.2em;
+          text-align: left;
+          color: black;
+          text-decoration: none;
+          margin-bottom: 20px;
+          transition: font-style 0.3s ease;
+        }
+
+        #messageButton.active {
+          font-style: italic;
+        }
+
+        .contact-form {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 1s ease, opacity 1s ease, padding 1s ease;
+          opacity: 0;
+          padding: 0 15px;
+          margin-top: 20px;
+          border-radius: 15px;
+          background-color: transparent;
+        }
+
+        .contact-form.active {
+          max-height: 500px;
+          opacity: 1;
+        }
+
+        .contact-form input, .contact-form textarea {
+          display: block;
+          width: 50%;
+          margin: 10px 0;
+          padding: 10px;
+          border: 1px solid #000;
+          border-radius: 5px;
+        }
+
+        .contact-form button {
+          background-color: #000;
+          color: #fff;
+          padding: 10px;
+          cursor: pointer;
+          border: none;
+          font-size: 1em;
+          border-radius: 5px;
+        }
+
+        .projects-section {
+          background-size: cover;
+          transition: max-height 0.5s ease, opacity 0.5s ease;
+          max-height: 500px;
+          overflow: hidden;
+          opacity: 1;
+        }
+
+        .projects-section.collapsed {
+          max-height: 0;
+          opacity: 0;
+        }
+
+        #projectsTitle.collapsed::after {
+          content: '\25B2'; 
+          font-size: 1.2em;
+          margin-left: 10px;
+        }
+
+        #projectsTitle::after {
+          content: '\25BC'; 
+          font-size: 1.2em;
+          margin-left: 10px;
+        }
+
+        .projects-section, .templates-section {
+          padding: 20px;
+          margin: 0 auto;
+          width: 100vw;
+        }
+
+        h2 {
+          text-align: left;
+          font-size: 1.5em;
+          margin-bottom: 20px;
+        }
+
+        .container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+          padding-left: 10px;
+          padding-right: 10px;
+          width: 100%;
+        }
+
+        .item {
+          display: flex;
+          align-items: center;
+          padding: 15px;
+          border: 1px solid #000;
+          border-radius: 15px;
+          background-color: transparent;
+          width: 100%;
+        }
+
+        .item a {
+          color: #000;
+          text-decoration: none;
+          font-style: normal;
+          text-transform: none;
+        }
+
+        .item a:hover {
+          font-style: italic;
+        }
+
+        footer {
+          text-align: left;
+          padding: 20px 10px;
+        }
+
+        footer a {
+          margin-right: 10px;
+          font-family: 'Pinyon Script', cursive;
+          font-size: 1.4em;
+          color: #000;
+          text-decoration: underline;
+        }
+
+        footer a:hover {
+          font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+          .container {
+            grid-template-columns: 1fr;
+          }
+
+          header h1 {
+            font-size: 4em;
+          }
+
+          .item a {
+            font-size: 0.8em;
+          }
+
+          .contact-form input, .contact-form textarea {
+            display: block;
+            width: 100%;
+          }
+
+          footer a {
+            font-size: 1em;
+          }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Moritz<br>Gauss</h1>
+        <p>Dpppopigital, product design. E-Mail at moritzggauss@gmail.com</p>
+        <button id="messageButton">SEND ME A MESSAGE!</button>
+        <div id="contactForm" class="contact-form">
+            <form id="contact-form">
+                <input type="email" name="email" placeholder="Your email">
+                <textarea name="message" placeholder="Your message"></textarea>
+                <textarea name="your favorite emoji" placeholder=":)"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </header>
+
+    <section class="projects-section">
+      <h2>PROJECTS</h2>
+      <div class="container">
+        <div class="item"><div class="folder"></div><a href="#">LINK TO >> RISE 2 SHINE LANDING PAGE & SHOP</a></div>
+        <div class="item"><div class="folder"></div><a href="#">OPEN POPUP >> APP FOR SMART TOOTHBRUSH</a></div>
+        <div class="item"><div class="folder"></div><a href="#">LINK TO >> NEW APP DESIGN</a></div>
+        <div class="item"><div class="folder"></div><a href="#">OPEN POPUP >> UI/UX WEBSITE REDESIGN</a></div>
+      </div>
+    </section>
+
+    <section class="templates-section">
+      <h2>TEMPLATES</h2>
+      <div class="container">
+        <div class="item"><div class="folder"></div><a href="#">OPEN POPUP >> BYEBAMBI WEBSITE REDESIGN</a></div>
+        <div class="item"><div class="folder"></div><a href="#">LINK TO >> WEBSITE TEMPLATES IN FIGMA</a></div>
+        <div class="item"><div class="folder"></div><a href="#">LINK TO >> PORTFOLIO TEMPLATE</a></div>
+        <div class="item"><div class="folder"></div><a href="#">OPEN POPUP >> LANDING PAGE CONCEPT</a></div>
+      </div>
+    </section>
+
+    <section class="projects-section">
+      <h2 id="projectsTitle">PROJECTS &#x25BC;</h2>
+      <div id="projectsContent" class="container">
+          <div class="item"><div class="folder"></div><a href="#">LINK TO >> RISE 2 SHINE LANDING PAGE & SHOP</a></div>
+          <div class="item"><div class="folder"></div><a href="#">OPEN POPUP >> APP FOR SMART TOOTHBRUSH</a></div>
+          <div class="item"><div class="folder"></div><a href="#">LINK TO >> NEW APP DESIGN</a></div>
+          <div class="item"><div class="folder"></div><a href="#">OPEN POPUP >> UI/UX WEBSITE REDESIGN</a></div>
+      </div>
+    </section>
+
+    <footer>
+        <h3><a href="#">About</a> <a href="#">Prices</a></h3>
+    </footer>
+
+    <script>
+        const messageButton = document.getElementById('messageButton');
+        const contactForm = document.getElementById('contactForm');
+        messageButton.addEventListener('click', function () {
+            contactForm.classList.toggle('active');
+            messageButton.classList.toggle('active');
+        });
+
+        const projectsTitle = document.getElementById('projectsTitle');
+        const projectsContent = document.getElementById('projectsContent');
+        projectsTitle.addEventListener('click', function () {
+            projectsContent.classList.toggle('collapsed');
+            projectsTitle.classList.toggle('collapsed');
+        });
+    </script>
+
+</body>
+</html>
