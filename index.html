@@ -3,188 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pinterest Image Gallery with Carousels</title>
-    <style>
-<style>
-    body {
-        font-family: 'DM Sans', sans-serif;
-        margin: 0;
-        padding: 20px;
-        background-color: #f4f4f4;
-    }
-    .tab-container {
-        display: flex;
-        justify-content: flex-start;
-        margin-bottom: 20px;
-        overflow-x: auto;
-        white-space: nowrap;
-        scroll-behavior: smooth;
-        padding: 10px;
-    }
-.tab {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 20px;
-    color: black;
-    cursor: pointer;
-    text-decoration: none;
-    padding: 10px 15px;
-}
-
-.tab.active {
-    font-family: 'Pinyon Script', cursive;
-    font-size: 24px;
-    text-decoration: underline;
-    color: black;
-}
-
-.tab:hover {
-    font-style: italic;
-}
-
-    .arrow-container {
-        display: flex;
-        justify-content: space-between;
-        position: absolute;
-        bottom: 10px;
-        width: 100%;
-        padding: 0 20px;
-    }
-    .arrow {
-        cursor: pointer;
-        background-color: transparent;
-        color: white;
-        padding: 10px;
-        font-size: 20px;
-        border-radius: 50%;
-    }
-    .arrow:hover {
-scale: 1.5;
-    }
-    .image-container img {
-        width: 100%;
-        max-width: 600px;
-        display: none;
-        margin: 0 auto;
-    }
-    .image-container img.active-image {
-        display: block;
-    }
-    .gallery-container {
-        position: relative;
-        margin-bottom: 20px;
-    }
-    
-    /* For smaller screens */
-    @media (max-width: 768px) {
-        .tab-container {
-            flex-wrap: nowrap;
-        }
-        .tab {
-            padding: 10px;
-            font-size: 18px;
-        }
-    }
-</style>
-    </style>
+    <title>Moritz Gauss Projects</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="tab-container">
-        <div class="tab active" onclick="showTab(0)">Graphics</div>
-        <div class="tab" onclick="showTab(1)">Photo</div>
-        <div class="tab" onclick="showTab(2)">Video</div>
-        <div class="tab" onclick="showTab(3)">Drawings</div>
-        <div class="tab" onclick="showTab(4)">Textiles</div>
+<header>
+    <h1 onclick="toggleOverlay()">Moritz Gauss</h1>
+</header>
+
+<div class="contact-overlay" id="contactOverlay">
+    <div>
+        <p>Address: XYZ Street, Berlin</p>
+        <p>Phone: 0123456789</p>
+        <p>Email: moritz@example.com</p>
+        <button onclick="toggleOverlay()">Go Back</button>
     </div>
+</div>
 
-    <!-- Tab Content for Graphics -->
-    <div class="tab-content active-content">
-        <!-- First Image Carousel -->
-        <div class="gallery-container">
-            <div class="arrow-container">
-                <div class="arrow" onclick="prevImage(0)">&#9664;</div>
-                <div class="arrow" onclick="nextImage(0)">&#9654;</div>
-            </div>
-            <div class="image-container">
-                <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" class="active-image" alt="Graphics 1">
-                <img src="https://i.pinimg.com/736x/a3/b7/f6/a3b7f6710df50e94717ebc8133c49d6c.jpg" alt="Graphics 2">
-            </div>
-        </div>
+<div class="tab-container">
+    <div class="tab active" onclick="showTab('project1')">Project 1</div>
+    <div class="tab" onclick="showTab('project2')">Project 2</div>
+    <div class="tab" onclick="showTab('project3')">Project 3</div>
+    <div class="tab" onclick="showTab('project4')">Project 4</div>
+</div>
 
-        <!-- Second Image Carousel -->
-        <div class="gallery-container">
-            <div class="arrow-container">
-                <div class="arrow" onclick="prevImage(1)">&#9664;</div>
-                <div class="arrow" onclick="nextImage(1)">&#9654;</div>
-            </div>
-            <div class="image-container">
-                <img src="https://i.pinimg.com/736x/82/1b/1f/821b1f76cdbd51b93eb02886c3d0a5b6.jpg" class="active-image" alt="Graphics 3">
-                <img src="https://i.pinimg.com/736x/56/8a/d3/568ad35013f9a5f1c69a7f260ee0e98e.jpg" alt="Graphics 4">
-            </div>
+<div id="project1" class="project">
+    <h2 class="project-title">Project 1 Title</h2>
+    <p class="project-description">Description with <a href="#">link</a>.</p>
+    <div class="carousel">
+        <span class="arrow left" onclick="scrollCarousel('left', 'carousel1')">&#9664;</span>
+        <div class="carousel-inner" id="carousel1">
+            <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Placeholder 1">
+            <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Placeholder 2">
         </div>
+        <span class="arrow right" onclick="scrollCarousel('right', 'carousel1')">&#9654;</span>
     </div>
-
-    <!-- Tab Content for Photo -->
-    <div class="tab-content">
-        <!-- First Image Carousel -->
-        <div class="gallery-container">
-            <div class="arrow-container">
-                <div class="arrow" onclick="prevImage(2)">&#9664;</div>
-                <div class="arrow" onclick="nextImage(2)">&#9654;</div>
-            </div>
-            <div class="image-container">
-                <img src="https://i.pinimg.com/736x/64/23/32/642332a9926f1a742dc30f126b68d4a6.jpg" class="active-image" alt="Photo 1">
-                <img src="https://i.pinimg.com/736x/97/6a/91/976a9146449d233b9703fe4b4f80e1fc.jpg" alt="Photo 2">
-            </div>
-        </div>
-
-        <!-- Second Image Carousel -->
-        <div class="gallery-container">
-            <div class="arrow-container">
-                <div class="arrow" onclick="prevImage(3)">&#9664;</div>
-                <div class="arrow" onclick="nextImage(3)">&#9654;</div>
-            </div>
-            <div class="image-container">
-                <img src="https://i.pinimg.com/736x/7c/12/d1/7c12d1b83de67f7247361982f8706fe6.jpg" class="active-image" alt="Photo 3">
-                <img src="https://i.pinimg.com/736x/36/76/33/367633d9c1c858f09f2f43c7a4df4958.jpg" alt="Photo 4">
-            </div>
-        </div>
+    <p class="see-more" onclick="toggleMoreInfo('moreInfo1')">See More</p>
+    <div class="more-info" id="moreInfo1">
+        <p>In-depth description of Project 1.</p>
     </div>
+</div>
 
-    <!-- Other Tab Content will have similar structure -->
+<!-- More project divs with carousels as needed -->
 
-    <script>
-        let currentTab = 0;
-        const tabs = document.querySelectorAll('.tab');
-        const tabContents = document.querySelectorAll('.tab-content');
-        const imageContainers = document.querySelectorAll('.image-container');
+<script>
+function toggleOverlay() {
+    const overlay = document.getElementById('contactOverlay');
+    overlay.classList.toggle('active');
+}
 
-        function showTab(index) {
-            tabs.forEach((tab, i) => {
-                tab.classList.toggle('active', i === index);
-            });
-            tabContents.forEach((content, i) => {
-                content.classList.toggle('active-content', i === index);
-            });
-            currentTab = index;
-        }
+function toggleMoreInfo(id) {
+    const info = document.getElementById(id);
+    info.classList.toggle('active');
+}
 
-        function prevImage(tabIndex) {
-            const images = imageContainers[tabIndex].querySelectorAll('img');
-            let currentImageIndex = Array.from(images).findIndex(img => img.classList.contains('active-image'));
-            images[currentImageIndex].classList.remove('active-image');
-            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-            images[currentImageIndex].classList.add('active-image');
-        }
+function showTab(id) {
+    document.querySelectorAll('.project').forEach(function(proj) {
+        proj.style.display = 'none';
+    });
+    document.getElementById(id).style.display = 'block';
 
-        function nextImage(tabIndex) {
-            const images = imageContainers[tabIndex].querySelectorAll('img');
-            let currentImageIndex = Array.from(images).findIndex(img => img.classList.contains('active-image'));
-            images[currentImageIndex].classList.remove('active-image');
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            images[currentImageIndex].classList.add('active-image');
-        }
-    </script>
+    document.querySelectorAll('.tab').forEach(function(tab) {
+        tab.classList.remove('active');
+    });
+    event.target.classList.add('active');
+}
+
+function scrollCarousel(direction, id) {
+    const container = document.getElementById(id);
+    const scrollAmount = 300; // Adjust as needed
+
+    if (direction === 'left') {
+        container.scrollLeft -= scrollAmount;
+    } else {
+        container.scrollLeft += scrollAmount;
+    }
+}
+</script>
 
 </body>
 </html>
