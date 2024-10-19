@@ -35,15 +35,18 @@
             max-width: 100%;
             overflow-x: auto;
             white-space: nowrap;
+            padding: 0 10px;
         }
 
         .tab {
             padding: 10px 20px;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
-            flex-grow: 1;
+            flex: 1 0 auto; /* Flex-grow and shrink */
             text-align: center;
             background: lightgrey;
+            margin: 0 5px;
+            min-width: 80px; /* Minimum width for tabs */
         }
 
         .tab.active {
@@ -119,6 +122,7 @@
             background-color: white;
             z-index: 10;
             padding: 20px;
+            overflow-y: auto;
         }
 
         #overlay.active, #project-overlay.active {
@@ -157,6 +161,10 @@
                 font-size: 28px;
             }
 
+            .tab {
+                font-size: 14px; /* Anpassung der Tab-Größe auf Mobilgeräten */
+            }
+
             #overlay h1, #project-overlay h1 {
                 font-size: 24px;
             }
@@ -165,12 +173,27 @@
                 font-size: 16px;
             }
         }
+
+        @media (max-width: 450px) {
+            header h1 {
+                font-size: 24px; /* Kleinere Schriftgröße auf sehr kleinen Bildschirmen */
+            }
+
+            .tab {
+                font-size: 12px; /* Weitere Anpassung für sehr kleine Bildschirme */
+            }
+
+            .carousel img {
+                width: 100%; /* Bilder auf die Breite des Bildschirms skalieren */
+                height: auto;
+            }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 id="name" onclick="showOverlay()">Moritz Gauss</h1>
+    <h1 id="name" onclick="showOverlay()">Moritz Gauss <span id="go-back" style="font-size: 16px; display: none;">(Go Back)</span></h1>
 </header>
 
 <!-- Tab Navigation -->
@@ -187,11 +210,11 @@
             <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Placeholder 1">
             <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Placeholder 2">
         </div>
-        <span class="prev" onclick="prevSlide('carousel-1')">‹</span>
-        <span class="next" onclick="nextSlide('carousel-1')">›</span>
+        <span class="prev" onclick="prevSlide('carousel-1')">◀</span>
+        <span class="next" onclick="nextSlide('carousel-1')">▶</span>
     </div>
-    <p>Short description of Project 1.</p>
-    <span class="see-more" onclick="showProjectOverlay()">See More</span>
+    <p>Short description of Project 1. <a href="#">Link</a></p>
+    <span class="see-more" onclick="toggleSeeMore(this)">See More</span>
 </div>
 
 <div id="tab-content-1" class="tab-content">
@@ -201,16 +224,16 @@
             <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Placeholder 1">
             <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Placeholder 2">
         </div>
-        <span class="prev" onclick="prevSlide('carousel-2')">‹</span>
-        <span class="next" onclick="nextSlide('carousel-2')">›</span>
+        <span class="prev" onclick="prevSlide('carousel-2')">◀</span>
+        <span class="next" onclick="nextSlide('carousel-2')">▶</span>
     </div>
-    <p>Short description of Project 2.</p>
-    <span class="see-more" onclick="showProjectOverlay()">See More</span>
+    <p>Short description of Project 2. <a href="#">Link</a></p>
+    <span class="see-more" onclick="toggleSeeMore(this)">See More</span>
 </div>
 
 <!-- Contact Overlay -->
 <div id="overlay">
-    <h1>Moritz Gauss (Go Back)</h1>
+    <h1>Moritz Gauss <span onclick="hideOverlay()" style="font-size: 16px;">(Go Back)</span></h1>
     <p>Address: St.-Pauls-Platz 5</p>
     <p>City: 80336 München</p>
     <p>Mobil: <a href="tel:+4916092870315">+49 16092870315</a></p>
@@ -230,11 +253,13 @@
     // Show the overlay with contact information
     function showOverlay() {
         document.getElementById('overlay').classList.add('active');
+        document.getElementById('go-back').style.display = 'inline'; // Zeigt "Go Back" an
     }
 
     // Hide the overlay and return to main page content
     function hideOverlay() {
         document.getElementById('overlay').classList.remove('active');
+        document.getElementById('go-back').style.display = 'none'; // Versteckt "Go Back"
     }
 
     // Tab switching functionality
@@ -258,6 +283,22 @@
     function prevSlide(carouselId) {
         const carousel = document.getElementById(carouselId);
         carousel.insertBefore(carousel.lastElementChild, carousel.firstElementChild);
+    }
+
+    // Toggle the See More functionality
+    function toggleSeeMore(element) {
+        const content = element.previousElementSibling; // Der vorherige Absatz (Beschreibung)
+        const overlay = document.getElementById('project-overlay');
+
+        if (overlay.classList.contains('active')) {
+            overlay.classList.remove('active'); // Blende das Overlay aus
+            element.innerText = "See More"; // Zurücksetzen des Texts
+            element.classList.remove('italic'); // Entferne den Italic-Stil
+        } else {
+            overlay.classList.add('active'); // Blende das Overlay ein
+            element.innerText = "See Less"; // Ändere den Text
+            element.classList.add('italic'); // Füge den Italic-Stil hinzu
+        }
     }
 
     // Show the project detail overlay
