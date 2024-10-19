@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moritz Gauss</title>
+    <title>Moritz Gauss Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -26,11 +26,90 @@
         header h1 {
             font-size: 36px;
             cursor: pointer;
+        }
+
+        /* Tab styles */
+        .tab-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            flex-grow: 1;
+            text-align: center;
+            background: lightgrey;
+        }
+
+        .tab.active {
+            background: black;
+            color: white;
+            text-decoration: underline;
+        }
+
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Image carousel */
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel img {
+            max-width: 100%;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .carousel-wrapper {
             position: relative;
         }
 
-        /* Overlay for contact info */
-        #overlay {
+        .carousel-wrapper .prev, .carousel-wrapper .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: black;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .carousel-wrapper .prev {
+            left: 0;
+        }
+
+        .carousel-wrapper .next {
+            right: 0;
+        }
+
+        /* See more section */
+        .see-more {
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .see-more.italic {
+            font-style: italic;
+        }
+
+        /* Overlay */
+        #overlay, #project-overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -42,30 +121,30 @@
             padding: 20px;
         }
 
-        #overlay.active {
+        #overlay.active, #project-overlay.active {
             display: block;
         }
 
-        #overlay h1 {
+        #overlay h1, #project-overlay h1 {
             font-size: 28px;
             margin-bottom: 20px;
         }
 
-        #overlay p {
+        #overlay p, #project-overlay p {
             font-size: 18px;
             margin-bottom: 10px;
         }
 
-        #overlay a {
+        #overlay a, #project-overlay a {
             color: blue;
             text-decoration: none;
         }
 
-        #overlay a:hover {
+        #overlay a:hover, #project-overlay a:hover {
             text-decoration: underline;
         }
 
-        #back-button {
+        #back-button, #project-back {
             cursor: pointer;
             font-size: 18px;
             text-decoration: underline;
@@ -73,99 +152,17 @@
             margin-top: 20px;
         }
 
-        /* Tab styles */
-        .tabs {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            overflow-x: auto;
-        }
-
-        .tab {
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            white-space: nowrap;
-        }
-
-        .tab.active {
-            font-family: Georgia, serif;
-            font-style: italic;
-            text-decoration: underline;
-        }
-
-        /* Image carousel styles */
-        .carousel {
-            display: flex;
-            overflow-x: scroll;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .carousel img {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ccc;
-        }
-
-        /* "See More" overlay */
-        .see-more {
-            cursor: pointer;
-            text-decoration: underline;
-            font-style: normal;
-        }
-
-        .see-more.active {
-            font-style: italic;
-        }
-
-        .see-more-overlay {
-            display: none;
-            background-color: rgba(255, 255, 255, 0.95);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 20;
-            padding: 20px;
-        }
-
-        .see-more-overlay.active {
-            display: block;
-        }
-
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 28px;
             }
 
-            #overlay h1 {
+            #overlay h1, #project-overlay h1 {
                 font-size: 24px;
             }
 
-            #overlay p {
+            #overlay p, #project-overlay p {
                 font-size: 16px;
-            }
-
-            .carousel img {
-                max-width: 100%;
-            }
-
-            .tabs {
-                justify-content: space-between;
-            }
-
-            .tab {
-                font-size: 16px;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .carousel img {
-                max-width: 45%;
             }
         }
     </style>
@@ -176,28 +173,103 @@
     <h1 id="name" onclick="showOverlay()">Moritz Gauss</h1>
 </header>
 
-<div class="tabs">
-    <div class="tab active" data-tab="tab1">Project 1</div>
-    <div class="tab" data-tab="tab2">Project 2</div>
-    <div class="tab" data-tab="tab3">Project 3</div>
+<!-- Tab Navigation -->
+<div class="tab-container">
+    <div class="tab active" onclick="showTab(0)">Project 1</div>
+    <div class="tab" onclick="showTab(1)">Project 2</div>
 </div>
 
-<div id="tab1" class="tab-content active">
-    <div class="carousel">
-        <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Image 1">
-        <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Image 2">
+<!-- Tab Content -->
+<div id="tab-content-0" class="tab-content active">
+    <h2>Project 1 Title</h2>
+    <div class="carousel-wrapper">
+        <div class="carousel" id="carousel-1">
+            <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Placeholder 1">
+            <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Placeholder 2">
+        </div>
+        <span class="prev" onclick="prevSlide('carousel-1')">‹</span>
+        <span class="next" onclick="nextSlide('carousel-1')">›</span>
     </div>
-    <p>This is the description for Project 1. <a href="#">Link to project</a></p>
-    <span class="see-more" onclick="showSeeMore()">See More</span>
+    <p>Short description of Project 1.</p>
+    <span class="see-more" onclick="showProjectOverlay()">See More</span>
 </div>
 
-<div id="tab2" class="tab-content">
-    <div class="carousel">
-        <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Image 3">
-        <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Image 4">
+<div id="tab-content-1" class="tab-content">
+    <h2>Project 2 Title</h2>
+    <div class="carousel-wrapper">
+        <div class="carousel" id="carousel-2">
+            <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Placeholder 1">
+            <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Placeholder 2">
+        </div>
+        <span class="prev" onclick="prevSlide('carousel-2')">‹</span>
+        <span class="next" onclick="nextSlide('carousel-2')">›</span>
     </div>
-    <p>This is the description for Project 2. <a href="#">Link to project</a></p>
-    <span class="see-more" onclick="showSeeMore()">See More</span>
+    <p>Short description of Project 2.</p>
+    <span class="see-more" onclick="showProjectOverlay()">See More</span>
 </div>
 
-<div id="
+<!-- Contact Overlay -->
+<div id="overlay">
+    <h1>Moritz Gauss (Go Back)</h1>
+    <p>Address: St.-Pauls-Platz 5</p>
+    <p>City: 80336 München</p>
+    <p>Mobil: <a href="tel:+4916092870315">+49 16092870315</a></p>
+    <p>Email: <a href="mailto:lieberniko@googlemail.com">lieberniko@googlemail.com</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/nikolaidinosaur" target="_blank">@nikolaidinosaur</a></p>
+    <span id="back-button" onclick="hideOverlay()">Go Back</span>
+</div>
+
+<!-- Project Detail Overlay -->
+<div id="project-overlay">
+    <h1>Detailed Project Info</h1>
+    <p>Here is the full detailed description of the project.</p>
+    <span id="project-back" onclick="hideProjectOverlay()">Go Back</span>
+</div>
+
+<script>
+    // Show the overlay with contact information
+    function showOverlay() {
+        document.getElementById('overlay').classList.add('active');
+    }
+
+    // Hide the overlay and return to main page content
+    function hideOverlay() {
+        document.getElementById('overlay').classList.remove('active');
+    }
+
+    // Tab switching functionality
+    function showTab(tabIndex) {
+        let tabs = document.querySelectorAll('.tab');
+        let contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => tab.classList.remove('active'));
+        contents.forEach(content => content.classList.remove('active'));
+
+        tabs[tabIndex].classList.add('active');
+        contents[tabIndex].classList.add('active');
+    }
+
+    // Carousel functionality
+    function nextSlide(carouselId) {
+        const carousel = document.getElementById(carouselId);
+        carousel.appendChild(carousel.firstElementChild);
+    }
+
+    function prevSlide(carouselId) {
+        const carousel = document.getElementById(carouselId);
+        carousel.insertBefore(carousel.lastElementChild, carousel.firstElementChild);
+    }
+
+    // Show the project detail overlay
+    function showProjectOverlay() {
+        document.getElementById('project-overlay').classList.add('active');
+    }
+
+    // Hide the project detail overlay
+    function hideProjectOverlay() {
+        document.getElementById('project-overlay').classList.remove('active');
+    }
+</script>
+
+</body>
+</html>
