@@ -3,37 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabs with Arrows and Font Change</title>
+    <title>Pinterest Image Gallery with Carousels</title>
     <style>
         body {
             font-family: 'DM Sans', sans-serif;
             margin: 0;
             padding: 20px;
-        }
-        #email-form {
-            margin-bottom: 20px;
+            background-color: #f4f4f4;
         }
         .tab-container {
             display: flex;
-            flex-direction: row;
             justify-content: center;
             margin-bottom: 20px;
         }
         .tab {
             padding: 10px 20px;
             cursor: pointer;
-            border: 1px solid #ccc;
-            margin-right: 5px;
+            border: none;
+            background-color: transparent;
+            color: transparent;
         }
-        .tab:hover {
-            font-style: italic;
-        }
-        .active {
+        .tab.active {
             font-family: 'Pinyon Script', cursive;
+            font-size: 24px;
+            color: black;
+            text-decoration: underline;
         }
         .tab-content {
             display: none;
             text-align: center;
+            position: relative;
         }
         .tab-content.active-content {
             display: block;
@@ -41,32 +40,38 @@
         .arrow-container {
             display: flex;
             justify-content: space-between;
-            margin: 10px auto;
-            width: 200px;
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            padding: 0 20px;
         }
         .arrow {
             cursor: pointer;
-            font-size: 2em;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 50%;
+        }
+        .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.7);
         }
         .image-container img {
             width: 100%;
             max-width: 600px;
             display: none;
+            margin: 0 auto;
         }
         .image-container img.active-image {
             display: block;
         }
+        .gallery-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
-
-    <div id="email-form">
-        <h2>Contact Us</h2>
-        <form action="submit_email.php" method="post">
-            <input type="email" name="email" placeholder="Your email">
-            <button type="submit">Submit</button>
-        </form>
-    </div>
 
     <div class="tab-container">
         <div class="tab active" onclick="showTab(0)">Graphics</div>
@@ -76,40 +81,67 @@
         <div class="tab" onclick="showTab(4)">Textiles</div>
     </div>
 
+    <!-- Tab Content for Graphics -->
     <div class="tab-content active-content">
-        <div class="arrow-container">
-            <div class="arrow" onclick="prevImage()">&#9664;</div>
-            <div class="arrow" onclick="nextImage()">&#9654;</div>
+        <!-- First Image Carousel -->
+        <div class="gallery-container">
+            <div class="arrow-container">
+                <div class="arrow" onclick="prevImage(0)">&#9664;</div>
+                <div class="arrow" onclick="nextImage(0)">&#9654;</div>
+            </div>
+            <div class="image-container">
+                <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" class="active-image" alt="Graphics 1">
+                <img src="https://i.pinimg.com/736x/a3/b7/f6/a3b7f6710df50e94717ebc8133c49d6c.jpg" alt="Graphics 2">
+            </div>
         </div>
-        <div class="image-container">
-            <img src="image1.jpg" class="active-image" alt="Image 1">
-            <img src="image2.jpg" alt="Image 2">
-            <img src="image3.jpg" alt="Image 3">
+
+        <!-- Second Image Carousel -->
+        <div class="gallery-container">
+            <div class="arrow-container">
+                <div class="arrow" onclick="prevImage(1)">&#9664;</div>
+                <div class="arrow" onclick="nextImage(1)">&#9654;</div>
+            </div>
+            <div class="image-container">
+                <img src="https://i.pinimg.com/736x/82/1b/1f/821b1f76cdbd51b93eb02886c3d0a5b6.jpg" class="active-image" alt="Graphics 3">
+                <img src="https://i.pinimg.com/736x/56/8a/d3/568ad35013f9a5f1c69a7f260ee0e98e.jpg" alt="Graphics 4">
+            </div>
         </div>
     </div>
 
+    <!-- Tab Content for Photo -->
     <div class="tab-content">
-        <p>Photo content goes here</p>
+        <!-- First Image Carousel -->
+        <div class="gallery-container">
+            <div class="arrow-container">
+                <div class="arrow" onclick="prevImage(2)">&#9664;</div>
+                <div class="arrow" onclick="nextImage(2)">&#9654;</div>
+            </div>
+            <div class="image-container">
+                <img src="https://i.pinimg.com/736x/64/23/32/642332a9926f1a742dc30f126b68d4a6.jpg" class="active-image" alt="Photo 1">
+                <img src="https://i.pinimg.com/736x/97/6a/91/976a9146449d233b9703fe4b4f80e1fc.jpg" alt="Photo 2">
+            </div>
+        </div>
+
+        <!-- Second Image Carousel -->
+        <div class="gallery-container">
+            <div class="arrow-container">
+                <div class="arrow" onclick="prevImage(3)">&#9664;</div>
+                <div class="arrow" onclick="nextImage(3)">&#9654;</div>
+            </div>
+            <div class="image-container">
+                <img src="https://i.pinimg.com/736x/7c/12/d1/7c12d1b83de67f7247361982f8706fe6.jpg" class="active-image" alt="Photo 3">
+                <img src="https://i.pinimg.com/736x/36/76/33/367633d9c1c858f09f2f43c7a4df4958.jpg" alt="Photo 4">
+            </div>
+        </div>
     </div>
 
-    <div class="tab-content">
-        <p>Video content goes here</p>
-    </div>
-
-    <div class="tab-content">
-        <p>Drawings content goes here</p>
-    </div>
-
-    <div class="tab-content">
-        <p>Textiles content goes here</p>
-    </div>
+    <!-- Other Tab Content will have similar structure -->
 
     <script>
         let currentTab = 0;
-        let currentImage = 0;
         const tabs = document.querySelectorAll('.tab');
         const tabContents = document.querySelectorAll('.tab-content');
-        const images = document.querySelectorAll('.image-container img');
+        const imageContainers = document.querySelectorAll('.image-container');
 
         function showTab(index) {
             tabs.forEach((tab, i) => {
@@ -121,16 +153,20 @@
             currentTab = index;
         }
 
-        function prevImage() {
-            images[currentImage].classList.remove('active-image');
-            currentImage = (currentImage - 1 + images.length) % images.length;
-            images[currentImage].classList.add('active-image');
+        function prevImage(tabIndex) {
+            const images = imageContainers[tabIndex].querySelectorAll('img');
+            let currentImageIndex = Array.from(images).findIndex(img => img.classList.contains('active-image'));
+            images[currentImageIndex].classList.remove('active-image');
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            images[currentImageIndex].classList.add('active-image');
         }
 
-        function nextImage() {
-            images[currentImage].classList.remove('active-image');
-            currentImage = (currentImage + 1) % images.length;
-            images[currentImage].classList.add('active-image');
+        function nextImage(tabIndex) {
+            const images = imageContainers[tabIndex].querySelectorAll('img');
+            let currentImageIndex = Array.from(images).findIndex(img => img.classList.contains('active-image'));
+            images[currentImageIndex].classList.remove('active-image');
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            images[currentImageIndex].classList.add('active-image');
         }
     </script>
 
