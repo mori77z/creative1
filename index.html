@@ -58,10 +58,14 @@
 }
 
 .scroll-box {
-    position: relative; /* Setzt den Bezugspunkt für das absolute Positionieren */
-    height: auto; /* Dynamische Höhe je nach Inhalt */
+    display: flex;
+    flex-direction: column; /* Stellt sicher, dass Inhalt und Bild untereinander angeordnet sind */
+    justify-content: flex-end; /* Bild und Inhalt nach unten ausrichten */
+    align-items: flex-start;
+    height: auto;
     width: 400px; /* Mobile width */
     text-align: left;
+    flex: 0 0 auto; /* Prevent shrinking */
     padding-bottom: 10px; /* Optionaler Abstand zum unteren Rand */
 }
 
@@ -70,12 +74,13 @@
 }
 
 .img-container {
-    position: absolute; /* Bild absolut positioniert innerhalb der Box */
-    bottom: 0; /* Bild immer unten in der Box */
     width: 100%;
     height: auto;
     aspect-ratio: 3 / 4; /* 4:3 Verhältnis */
     overflow: hidden;
+    flex-grow: 1; /* Nimmt den verfügbaren Platz ein */
+    display: flex; /* Flexbox im Image-Container */
+    align-items: flex-end; /* Bild am unteren Rand ausrichten */
 }
 
 .img-container img {
