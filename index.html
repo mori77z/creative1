@@ -55,28 +55,14 @@
     overflow-x: auto;
     white-space: nowrap;
     width: 100%;
+}
+
 .scroll-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Platz zwischen Info und Bild */
-    align-items: flex-start;
+    align-items: end;
+    height: 300px; /* Fixed height for the scroll box */
     width: 400px;
-    height: 300px; /* Feste Höhe beibehalten */
+    text-align: left;
 }
-
-
-.img-container {
-    width: 100%;
-    height: 200px; /* Feste Höhe für das Bild */
-    overflow: hidden; /* Verhindert Overflow */
-}
-
-.img-container img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; /* Proportionale Skalierung, Bild wird nicht gestaucht */
-}
-
 
 .info {
     height: 100px; /* Fixed height for the info section */
@@ -92,6 +78,18 @@
 .info p {
     font-size: 16px;
     margin: 5px 0;
+}
+
+/* Image container takes remaining space */
+.img-container {
+    width: 100%; /* Full width */
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Ensure image scales and covers the container */
 }
 
  .arrows-wrapper {
@@ -110,30 +108,28 @@
         .arrow_right {
             color: blue;
         }
-
-@media (prefers-color-scheme: dark) {
+        @media (prefers-color-scheme: dark) {
             body {
                 background-color: #fc4022;
             }
          }
-        
     @media (min-width: 768px) {
    
     h1 {
         font-size: 48px; /* Larger font size for desktop */
     }
-.scroll-box {
-        width: 800px;
-        height: 500px; /* Größere Höhe für Desktop */
+     .scroll-box {
+    width: 800px;
+    height: 500px; /* Ensure this takes the full available height */
     }
-
     .info {
-        height: 150px; /* Größerer Info-Bereich */
+     height: 150px; /* Increase the height of the info section on desktop */
     }
 
     .img-container {
-        height: 350px; /* Feste Höhe für Bilder auf Desktop */
+        width: 100%;
     }
+         
 }
     </style>
 </head>
