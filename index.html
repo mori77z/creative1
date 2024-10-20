@@ -97,33 +97,28 @@
         .arrow_right {
             color: blue;
         }
-    }
         @media (prefers-color-scheme: dark) {
             body {
                 background-color: #fc4022;
             }
-         @media (max-width: 768px) {
-          .container {
-            grid-template-columns: 1fr;
-          }
-
-          header h1 {
-            font-size: 4em;
-          }
-
-          .item a {
-            font-size: 0.8em;
-          }
-
-          .contact-form input, .contact-form textarea {
-            display: block;
-            width: 100%;
-          }
-
-          footer a {
-            font-size: 1em;
-          }
+         }
+        @media (min-width: 768px) {
+    h1 {
+        font-size: 48px; /* Larger font size for desktop */
     }
+    .scroll-box img {
+        width: 800px; /* Larger image for desktop */
+    }
+    /* Fix the content overflow on desktop */
+    .content {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+    /* Ensure nav doesn't overflow */
+    nav {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
     </style>
 </head>
 <body>
