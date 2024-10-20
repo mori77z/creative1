@@ -61,20 +61,12 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Keep content at the top */
-    align-items: flex-start; /* Align content to start */
-    height: 300px; /* Ensure this takes the full available height */
+    align-items: flex-start;
+    height: 300px;
     text-align: left;
+    overflow: hidden; /* Prevent overflow */
 }
-
-.scroll-box img {
-    width: 400px;
-    height: auto;
-    margin-top: 10px; /* Push image to the bottom */
-    justify-content: flex-end; /* Push the image to the bottom if there's no content */
-}
-
-
-        .scroll-box h2 {
+       .scroll-box h2 {
             font-size: 24px;
             font-weight: normal; /* Not bold */
             margin: 0;
@@ -83,6 +75,19 @@
             font-size: 16px;
             margin: 5px 0;
         }
+
+.img-container {
+    width: 200px; /* Fixed width for normal */
+    height: auto;
+    overflow: hidden; /* To prevent the image from overflowing the container */
+}
+
+.img-container img {
+    width: 100%; /* The image will take 100% of the container's width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure there's no inline gap */
+}
+
         .arrows-wrapper {
             display: flex;
             justify-content: flex-start;
@@ -110,9 +115,13 @@
     }
      .scroll-box {
     height: 500px; /* Ensure this takes the full available height */
-    .scroll-box img {
+    
+    scroll-box img {
         width: 600px; /* Larger image for desktop */
         margin-top: 20px; /* Push image to the bottom */
+    }
+        .img-container {
+        width: 300px; /* Larger image container for desktop */
     }
 }
     </style>
