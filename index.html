@@ -8,11 +8,12 @@
     <style>
         body {
             width: 100vw;
+            height: 100vh; /* Stellt sicher, dass der Body den gesamten Bildschirm füllt */
             background: white;
             display: flex;
             flex-direction: column;
             font-family: Helvetica, sans-serif;
-            overflow-x: hidden;
+            overflow: hidden; /* Verhindert das Scrollen der gesamten Seite */
         }
         header {
             display: flex;
@@ -40,29 +41,31 @@
             line-height: 22px;
             text-decoration: underline;
             color: black;
+            cursor: pointer;
         }
         .content {
-            width: 400px;
+            width: 100%; /* Stellt sicher, dass der Inhalt sich an die Breite anpasst */
             height: auto;
             padding: 10px;
             display: flex;
             justify-content: flex-start;
             align-items: flex-end;
             gap: 10px;
-            overflow-x: hidden;
-            scroll: horizontal;
+            overflow-x: auto; /* Ermöglicht horizontales Scrollen */
+            white-space: nowrap; /* Verhindert Umbrüche, damit der Inhalt horizontal scrollt */
         }
-        .content-left {
+        .scroll-box {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            white-space: normal; /* Standard für Text-Inhalte */
         }
-        .content-left div {
+        .scroll-box div {
             font-size: 20px;
             line-height: 24px;
             color: black;
         }
-        .content-left a {
+        .scroll-box a {
             color: #1100FF;
         }
         img {
@@ -74,50 +77,50 @@
             gap: 20px;
             align-items: center;
         }
-.arrows {
-    width: 40px;
-    height: auto;
-    background: transparent;
-    padding: 2px; /* Beibehaltung des bestehenden Wertes */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .arrows {
+            width: 40px;
+            height: auto;
+            background: transparent;
+            padding: 2px; /* Beibehaltung des bestehenden Wertes */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.arrows .arrow {
-    color: red; /* Setzt die Farbe auf Rot */
-    font-size: 36px; /* Größe des Icons */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .arrows .arrow {
+            color: red; /* Setzt die Farbe auf Rot */
+            font-size: 36px; /* Größe des Icons */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="header-title">Moritz Gauss</div>
         <nav>
-            <span>Photo</span>
-            <span>Video</span>
-            <span>Textiles</span>
+            <a href="#">Photo</a>
+            <a href="#">Video</a>
+            <a href="#">Textiles</a>
         </nav>
     </header>
 
     <div class="content">
-        <div class="content-left">
+        <div class="scroll-box">
             <div>Je Suis Le Papillon À Travers Le Jardin (2021) Magazin, DIN A4</div>
             <a href="https://neuwork.shop/products/...">https://neuwork.shop/products/...</a>
             <img src="https://via.placeholder.com/727x510" alt="Project Image 1">
         </div>
-        <div>
+        <div class="scroll-box">
             <img src="https://via.placeholder.com/727x510" alt="Project Image 2">
         </div>
+        <!-- Füge weitere scroll-boxen hier hinzu -->
     </div>
 
-<div class="arrows">
-    <span class="material-icons arrow">arrow_left</span>
-    <span class="material-icons arrow">arrow_right</span>
-
+    <div class="arrows">
+        <span class="material-icons arrow">arrow_left</span>
+        <span class="material-icons arrow">arrow_right</span>
     </div>
 </body>
 </html>
