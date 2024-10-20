@@ -69,16 +69,10 @@
 .scroll-box img {
     width: 400px;
     height: auto;
-    margin-top: auto; /* Push image to the bottom */
-}
-
-.scroll-box h2, .scroll-box p, .scroll-box a {
-    flex-shrink: 0; /* Prevent shrinking for text content */
-}
-
-.scroll-box:empty {
+    margin-top: 10px; /* Push image to the bottom */
     justify-content: flex-end; /* Push the image to the bottom if there's no content */
 }
+
 
         .scroll-box h2 {
             font-size: 24px;
@@ -116,6 +110,7 @@
     }
     .scroll-box img {
         width: 600px; /* Larger image for desktop */
+        margin-top: 20px; /* Push image to the bottom */
     }
 }
     </style>
