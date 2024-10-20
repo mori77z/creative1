@@ -52,13 +52,15 @@
             width: 100%;
             padding: 10px;
         }
-        .content {
-            display: flex;
-            justify-content: left;
-            align-items: flex-start;
-            gap: 10px;
-            overflow-x: auto;
-            white-space: nowrap;
+.content {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    gap: 10px;
+    overflow-x: auto; /* Make sure this is enabled */
+    white-space: nowrap;
+    width: 100%; /* Make sure the content section has a width */
+}
         }
 .scroll-box {
     display: flex;
