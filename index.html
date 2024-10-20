@@ -12,7 +12,7 @@
             font-family: Helvetica, sans-serif;
             margin: 0;
             padding: 0;
-            overflow-x: auto;
+            overflow-x: hidden;
         }
         header {
             display: flex;
@@ -53,20 +53,23 @@
             justify-content: left;
             align-items: flex-start;
             gap: 10px;
+            width: 100vw;
             overflow-x: auto;
             white-space: nowrap;
         }
-        .scroll-box {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end; /* Bild wird nach unten verschoben */
-            text-align: left;
-        }
-        .scroll-box img {
-            width: 400px;
-            height: auto;
-            align-self: flex-end; /* Bild bleibt am unteren Rand */
-            margin-top: 10px;
+.scroll-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Hier flex-start, damit andere Elemente nicht am Ende erscheinen */
+    text-align: left;
+    height: 100%; /* Feste Höhe für die Scroll-Box */
+}
+
+.scroll-box img {
+    width: 400px;
+    height: auto;
+    margin-top: auto; /* Bild wird an das untere Ende verschoben */
+}
         }
         .scroll-box h2 {
             font-size: 24px;
