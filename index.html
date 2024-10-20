@@ -17,7 +17,6 @@
             margin: 0;
             padding: 0;
         }
-
         header {
             display: flex;
             flex-direction: column;
@@ -25,119 +24,74 @@
             padding: 10px;
             height: 60px;
         }
-
-        h1, h2 {
-            font-weight: normal; /* Make headings not bold */
-            margin: 0; /* Remove default margins */
-        }
-
         h1 {
             font-size: 30px;
+            font-weight: normal; /* Not bold */
             line-height: 36px;
             color: black;
+            margin: 0; /* No preset margin */
         }
-
-        h2 {
-            font-size: 24px;
-            color: black;
-        }
-
         nav {
             width: 100%;
             padding: 0 10px;
             display: flex;
-            justify-content: space-between; /* Space between items */
-            align-items: center;
-            gap: 20px;
+            justify-content: space-between; /* Space between for desktop */
+            align-items: flex-start;
             margin-bottom: 10px;
         }
-
         nav a {
             font-size: 20px;
-            text-decoration: none;
+            line-height: 22px;
+            text-decoration: underline;
             color: black;
             cursor: pointer;
         }
-
-        main {
+        .main-container {
             display: flex;
             flex-direction: column;
             gap: 30px;
             width: 100%;
             padding: 20px;
         }
-
-        .project-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
         .content {
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: flex-start;
             gap: 10px;
             overflow-x: auto;
             white-space: nowrap;
             padding: 10px;
         }
-
         .scroll-box {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 10px;
             white-space: normal;
+            text-align: left;
         }
-
         .scroll-box img {
             width: 400px;
             height: auto;
         }
-
+        .scroll-box h2 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .scroll-box p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
         .arrows-wrapper {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
+            padding-left: 20px;
+            padding-bottom: 20px;
             gap: 10px;
         }
-
         .arrows .arrow {
             color: red;
             font-size: 36px;
-        }
-
-        .project-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            position: relative;
-        }
-
-        .project-content {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        /* Ensure the arrows don't scroll */
-        .arrows-wrapper {
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-        }
-
-        @media (min-width: 1024px) {
-            body {
-                max-width: 1200px;
-                margin: 0 auto;
-            }
-
-            nav {
-                justify-content: space-between;
-            }
         }
     </style>
 </head>
@@ -151,53 +105,54 @@
         </nav>
     </header>
 
-    <main>
-        <div class="project-section">
-            <!-- Erstes Projekt mit Text und Bild -->
-            <div class="project-container">
-                <div class="project-content">
-                    <div class="scroll-box">
-                        <h2>Le Voyage Imaginaire (2020) Fotobuch, Hardcover</h2>
-                        <a href="https://placeholder.shop/products/...">https://placeholder.shop/products/...</a>
-                        <img src="https://via.placeholder.com/727x510" alt="Project Image 1">
-                    </div>
-                </div>
-                <div class="arrows-wrapper">
-                    <span class="material-icons arrow">arrow_left</span>
-                    <span class="material-icons arrow">arrow_right</span>
-                </div>
-            </div>
-
-            <!-- Zweites Projekt, nur Bild -->
-            <div class="project-container">
-                <div class="project-content">
-                    <div class="scroll-box">
-                        <img src="https://via.placeholder.com/727x510" alt="Project Image 2">
-                        <h2>Form und Funktion (2022) Design-Monografie, Softcover</h2>
-                        <a href="https://placeholder.shop/products/...">https://placeholder.shop/products/...</a>
-                    </div>
-                </div>
-                <div class="arrows-wrapper">
-                    <span class="material-icons arrow">arrow_left</span>
-                    <span class="material-icons arrow">arrow_right</span>
-                </div>
-            </div>
-
-            <!-- Drittes Projekt, nur Bild -->
-            <div class="project-container">
-                <div class="project-content">
-                    <div class="scroll-box">
-                        <img src="https://via.placeholder.com/727x510" alt="Project Image 3">
-                        <h2>Form und Funktion (2022) Design-Monografie, Softcover</h2>
-                        <a href="https://placeholder.shop/products/...">https://placeholder.shop/products/...</a>
-                    </div>
-                </div>
-                <div class="arrows-wrapper">
-                    <span class="material-icons arrow">arrow_left</span>
-                    <span class="material-icons arrow">arrow_right</span>
-                </div>
+    <div class="main-container">
+        <!-- Erstes Projekt mit Text und Bild -->
+        <div class="content">
+            <div class="scroll-box">
+                <h2>Le Voyage Imaginaire (2020)</h2>
+                <p>Fotobuch, Hardcover</p>
+                <a href="https://placeholder.shop/products/...">https://placeholder.shop/products/...</a>
+                <img src="https://via.placeholder.com/727x510" alt="Project Image 1">
             </div>
         </div>
-    </main>
+        <div class="arrows-wrapper">
+            <div class="arrows">
+                <span class="material-icons arrow">arrow_left</span>
+                <span class="material-icons arrow">arrow_right</span>
+            </div>
+        </div>
+
+        <!-- Zweites Projekt -->
+        <div class="content">
+            <div class="scroll-box">
+                <h2>Form und Funktion (2022)</h2>
+                <p>Design-Monografie, Softcover</p>
+                <a href="https://placeholder.shop/products/...">https://placeholder.shop/products/...</a>
+                <img src="https://via.placeholder.com/727x510" alt="Project Image 2">
+            </div>
+        </div>
+        <div class="arrows-wrapper">
+            <div class="arrows">
+                <span class="material-icons arrow">arrow_left</span>
+                <span class="material-icons arrow">arrow_right</span>
+            </div>
+        </div>
+
+        <!-- Drittes Projekt -->
+        <div class="content">
+            <div class="scroll-box">
+                <h2>Form und Funktion (2022)</h2>
+                <p>Design-Monografie, Softcover</p>
+                <a href="https://placeholder.shop/products/...">https://placeholder.shop/products/...</a>
+                <img src="https://via.placeholder.com/727x510" alt="Project Image 3">
+            </div>
+        </div>
+        <div class="arrows-wrapper">
+            <div class="arrows">
+                <span class="material-icons arrow">arrow_left</span>
+                <span class="material-icons arrow">arrow_right</span>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
