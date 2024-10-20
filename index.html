@@ -58,6 +58,7 @@
             gap: 10px;
             overflow-x: auto;
             white-space: nowrap;
+            width: 100%; /* Set the width */
         }
         .scroll-box {
             display: flex;
@@ -72,7 +73,6 @@
             align-self: flex-end; /* Bild bleibt am unteren Rand */
             margin-top: 10px;
         }
-
         .scroll-box h2 {
             font-size: 24px;
             font-weight: normal; /* Not bold */
@@ -91,6 +91,7 @@
         .arrows .arrow {
             color: red;
             font-size: 36px;
+            cursor: pointer;
         }
         @media (prefers-color-scheme: dark) {
             body {
@@ -121,14 +122,14 @@
                 <a href="https://placeholder.shop/products/...">https://placeholder.shop/products/...</a>
                 <img src="https://via.placeholder.com/727x510" alt="Project Image 1">
             </div>
-                <div class="scroll-box">
+            <div class="scroll-box">
                 <img src="https://via.placeholder.com/727x510" alt="Project Image 1">
             </div>
         </div>
         <div class="arrows-wrapper">
             <div class="arrows">
-                <span class="arrow arrow_left">&lt;</span>
-                <span class="arrow arrow_right">&gt;</span>
+                <span class="material-icons arrow arrow_left">arrow_left</span>
+                <span class="material-icons arrow arrow_right">arrow_right</span>
             </div>
         </div>
 
@@ -140,7 +141,7 @@
                 <a href="https://placeholder.shop/products/...">https://placeholder.shop/products/...</a>
                 <img src="https://via.placeholder.com/727x510" alt="Project Image 2">
             </div>
-                <div class="scroll-box">
+            <div class="scroll-box">
                 <h2>Le Voyage Imaginaire (2020)</h2>
                 <a href="https://placeholder.shop/products/...">https://placeholder.shop/products/...</a>
                 <img src="https://via.placeholder.com/727x510" alt="Project Image 1">
@@ -148,8 +149,8 @@
         </div>
         <div class="arrows-wrapper">
             <div class="arrows">
-                <span class="arrow arrow_left">&lt;</span>
-                <span class="arrow arrow_right">&gt;</span>
+                <span class="material-icons arrow arrow_left">arrow_left</span>
+                <span class="material-icons arrow arrow_right">arrow_right</span>
             </div>
         </div>
 
@@ -164,32 +165,33 @@
         </div>
         <div class="arrows-wrapper">
             <div class="arrows">
-                <span class="arrow arrow_left">&lt;</span>
-                <span class="arrow arrow_right">&gt;</span>
+                <span class="material-icons arrow arrow_left">arrow_left</span>
+                <span class="material-icons arrow arrow_right">arrow_right</span>
             </div>
         </div>
     </div>
+
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const arrows = document.querySelectorAll(".arrow");
-    const contentSections = document.querySelectorAll(".content");
+    document.addEventListener("DOMContentLoaded", function () {
+        const arrows = document.querySelectorAll(".arrow");
+        const contentSections = document.querySelectorAll(".content");
 
-    arrows.forEach(arrow => {
-        arrow.addEventListener("click", function () {
-            const isLeft = arrow.classList.contains('arrow_left');
-            const isRight = arrow.classList.contains('arrow_right');
-            const scrollAmount = 300; // Adjust the scroll amount as needed
+        arrows.forEach(arrow => {
+            arrow.addEventListener("click", function () {
+                const isLeft = arrow.classList.contains('arrow_left');
+                const isRight = arrow.classList.contains('arrow_right');
+                const scrollAmount = 300; // Adjust the scroll amount as needed
 
-            const parentContent = arrow.closest('.content'); // Get the specific content container
+                const parentContent = arrow.closest('.content'); // Get the specific content container
 
-            if (isLeft) {
-                parentContent.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-            } else if (isRight) {
-                parentContent.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            }
+                if (isLeft) {
+                    parentContent.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                } else if (isRight) {
+                    parentContent.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            });
         });
     });
-});
 </script>
 </body>
 </html>
