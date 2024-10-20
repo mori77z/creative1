@@ -47,37 +47,27 @@
             gap: 10px;
             padding: 10px;
         }
-.content {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 10px;
-    overflow-x: auto;
-    white-space: nowrap;
-    width: 100%;
-}
-
+        .content {
+            display: flex;
+            justify-content: left;
+            align-items: flex-start;
+            gap: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+            width: 100%; /* Set the width */
+        }
 .scroll-box {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Align items to the bottom */
-    flex-grow: 1; 
-    height: 100%; 
+    justify-content: flex-end; /* Change this to flex-start */
+    height: 100%;
     text-align: left;
 }
-
 .scroll-box img {
-    align-self: flex-end; /* Ensure the image is at the bottom */
-    width: 100%; /* Ensure the image takes up the full width */
+    width: 400px;
     height: auto;
+    align-self: flex-end; /* Align to the start of the flexbox */
 }
-
-
-/* To ensure alignment if there is no content above the image */
-.scroll-box:empty {
-    justify-content: flex-end; /* If empty, push image to the bottom */
-}
-
         .scroll-box h2 {
             font-size: 24px;
             font-weight: normal; /* Not bold */
@@ -115,8 +105,6 @@
     .scroll-box img {
         width: 600px; /* Larger image for desktop */
     }
-    .content {
-    gap: 20px;
 }
     </style>
 </head>
