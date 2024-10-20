@@ -58,37 +58,39 @@
 }
 
 .scroll-box {
-    display: flex;
-    flex-direction: column; /* Stellt sicher, dass Inhalt und Bild untereinander angeordnet sind */
-    justify-content: flex-end; /* Bild und Inhalt nach unten ausrichten */
-    align-items: flex-start;
-    height: auto;
     width: 400px; /* Mobile width */
+    height: 400px; /* Festgelegte Höhe, damit das Bild immer am unteren Rand bleibt */
     text-align: left;
-    flex: 0 0 auto; /* Prevent shrinking */
-    padding-bottom: 10px; /* Optionaler Abstand zum unteren Rand */
+    position: relative; /* Setzt den Bezugspunkt für das Bild */
+    overflow: hidden; /* Überschüssigen Inhalt verbergen */
 }
 
 .info {
-    height: auto; /* Dynamische Höhe */
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Sicherstellen, dass der Text über dem Bild liegt */
 }
 
 .img-container {
     width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 4; /* 4:3 Verhältnis */
-    overflow: hidden;
-    flex-grow: 1; /* Nimmt den verfügbaren Platz ein */
-    display: flex; /* Flexbox im Image-Container */
-    align-items: flex-end; /* Bild am unteren Rand ausrichten */
+    height: 100%;
+    position: absolute;
+    bottom: 0; /* Bild immer am unteren Rand der Box */
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Bild unten innerhalb des Containers ausrichten */
 }
 
 .img-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Skaliert und schneidet das Bild passend */
+    object-fit: cover; /* Bild skalieren, um das Verhältnis zu wahren */
+    aspect-ratio: 3 / 4; /* 4:3 Verhältnis für das Bild */
 }
-
 
  .arrows-wrapper {
             display: flex;
