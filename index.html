@@ -8,12 +8,12 @@
     <style>
         body {
             width: 100vw;
-            height: 100vh; /* Fullscreen */
+            height: 100vh;
             background: white;
             display: flex;
             flex-direction: column;
             font-family: Helvetica, sans-serif;
-            overflow: hidden; /* Verhindert das Scrollen des gesamten Body */
+            overflow: hidden;
             margin: 0;
             padding: 0;
         }
@@ -37,7 +37,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px; /* Abstand zur Oberkante */
+            margin-bottom: 10px;
         }
         nav a {
             font-size: 20px;
@@ -46,28 +46,28 @@
             color: black;
             cursor: pointer;
         }
-        .content-wrapper {
+        .main-content-wrapper {
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            align-items: center;
+            flex-grow: 1;
             width: 100%;
-            overflow: hidden;
-            flex-grow: 1; /* Füllt den verbleibenden Platz aus */
+            padding: 10px 0;
         }
         .content {
             display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
+            justify-content: center;
+            align-items: flex-end; /* Richtet den Content unten aus */
             gap: 10px;
             overflow-x: auto;
             white-space: nowrap;
-            flex-grow: 1; /* Inhalt soll flexibler sein */
+            padding: 10px;
         }
         .scroll-box {
             display: flex;
             flex-direction: column;
             gap: 20px;
-            white-space: normal; /* Standard für Text-Inhalte */
+            white-space: normal;
         }
         .scroll-box div {
             font-size: 20px;
@@ -81,11 +81,11 @@
             width: 400px;
             height: auto;
         }
-        .arrows {
+        .arrows-wrapper {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            padding: 10px 0; /* Abstand zwischen Inhalt und Pfeilen */
         }
         .arrows .arrow {
             color: red;
@@ -103,10 +103,7 @@
         </nav>
     </header>
 
-    <div class="content-wrapper">
-        <div class="arrows">
-            <span class="material-icons arrow">arrow_left</span>
-        </div>
+    <div class="main-content-wrapper">
         <div class="content">
             <div class="scroll-box">
                 <div>Je Suis Le Papillon À Travers Le Jardin (2021) Magazin, DIN A4</div>
@@ -116,10 +113,16 @@
             <div class="scroll-box">
                 <img src="https://via.placeholder.com/727x510" alt="Project Image 2">
             </div>
-            <!-- Füge weitere scroll-boxen hier hinzu -->
+            <!-- Weitere scroll-boxen hier -->
         </div>
-        <div class="arrows">
-            <span class="material-icons arrow">arrow_right</span>
+
+        <div class="arrows-wrapper">
+            <div class="arrows">
+                <span class="material-icons arrow">arrow_left</span>
+            </div>
+            <div class="arrows">
+                <span class="material-icons arrow">arrow_right</span>
+            </div>
         </div>
     </div>
 </body>
