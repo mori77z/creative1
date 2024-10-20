@@ -61,17 +61,19 @@
             white-space: nowrap;
             padding: 10px;
         }
-        .scroll-box {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            white-space: normal;
-            text-align: left;
-        }
-        .scroll-box img {
-            width: 400px;
-            height: auto;
-        }
+.scroll-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Bild wird nach unten verschoben */
+    height: 100%;
+    text-align: left;
+}
+
+.scroll-box img {
+    width: 400px;
+    height: auto;
+    align-self: flex-end; /* Bild bleibt am unteren Rand */
+}
         .scroll-box h2 {
             font-size: 24px;
             font-weight: normal; /* Not bold */
