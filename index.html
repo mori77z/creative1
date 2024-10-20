@@ -13,7 +13,7 @@
             display: flex;
             flex-direction: column;
             font-family: Helvetica, sans-serif;
-            overflow: hidden;
+            overflow: auto;
             margin: 0;
             padding: 0;
         }
@@ -32,7 +32,7 @@
         }
         nav {
             width: 100%;
-            padding: 0 10px; 
+            padding: 0 10px; /* Gleiches Padding auf beiden Seiten */
             display: flex;
             justify-content: flex-start;
             align-items: left;
@@ -49,15 +49,14 @@
         .project-section {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            flex-grow: 1;
+            gap: 30px;
             width: 100%;
             padding: 20px;
         }
         .content {
             display: flex;
             justify-content: center;
-            align-items: flex-end;
+            align-items: flex-start;
             gap: 10px;
             overflow-x: auto;
             white-space: nowrap;
@@ -69,25 +68,17 @@
             gap: 20px;
             white-space: normal;
         }
-        .scroll-box div {
-            font-size: 20px;
-            line-height: 24px;
-            color: black;
-        }
-        .scroll-box a {
-            color: #1100FF;
-        }
         .scroll-box img {
             width: 400px;
             height: auto;
         }
         .arrows-wrapper {
             display: flex;
-            justify-content: flex-start; 
+            justify-content: flex-start;
             align-items: center;
             padding-left: 20px;
             padding-bottom: 20px;
-            gap: 10px; 
+            gap: 10px;
         }
         .arrows .arrow {
             color: red;
@@ -106,29 +97,30 @@
     </header>
 
     <div class="project-section">
+        <!-- Erstes Projekt mit Text und Bild -->
         <div class="content">
             <div class="scroll-box">
                 <div>Je Suis Le Papillon À Travers Le Jardin (2021) Magazin, DIN A4</div>
                 <a href="https://neuwork.shop/products/...">https://neuwork.shop/products/...</a>
                 <img src="https://via.placeholder.com/727x510" alt="Project Image 1">
             </div>
+        </div>
+
+        <!-- Zweites Projekt, nur Bild -->
+        <div class="content">
             <div class="scroll-box">
-                <div>Projekt 2: Abstract Art Collection (2023) Print, DIN A3</div>
-                <a href="https://neuwork.shop/products/...">https://neuwork.shop/products/...</a>
                 <img src="https://via.placeholder.com/727x510" alt="Project Image 2">
-            </div>
-            <div class="scroll-box">
-                <div>Projekt 3: Modern Architecture Photography (2022)</div>
-                <a href="https://neuwork.shop/products/...">https://neuwork.shop/products/...</a>
-                <img src="https://via.placeholder.com/727x510" alt="Project Image 3">
-            </div>
-            <div class="scroll-box">
-                <div>Projekt 4: Urban Exploration (2024) Photo Series</div>
-                <a href="https://neuwork.shop/products/...">https://neuwork.shop/products/...</a>
-                <img src="https://via.placeholder.com/727x510" alt="Project Image 4">
             </div>
         </div>
 
+        <!-- Drittes Projekt, nur Bild -->
+        <div class="content">
+            <div class="scroll-box">
+                <img src="https://via.placeholder.com/727x510" alt="Project Image 3">
+            </div>
+        </div>
+
+        <!-- Pfeile für Navigation -->
         <div class="arrows-wrapper">
             <div class="arrows">
                 <span class="material-icons arrow">arrow_left</span>
