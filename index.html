@@ -8,22 +8,24 @@
     <style>
         body {
             width: 100vw;
-            height: 100vh; /* Stellt sicher, dass der Body den gesamten Bildschirm füllt */
+            height: 100vh; /* Fullscreen */
             background: white;
             display: flex;
             flex-direction: column;
             font-family: Helvetica, sans-serif;
-            overflow: hidden; /* Verhindert das Scrollen der gesamten Seite */
+            overflow: hidden; /* Verhindert das Scrollen des gesamten Body */
+            margin: 0;
+            padding: 0;
         }
         header {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            padding: 10px;
             gap: 6px;
             height: 60px;
         }
         .header-title {
-            padding-left: 10px;
             font-size: 30px;
             font-weight: 400;
             line-height: 36px;
@@ -35,6 +37,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 10px; /* Abstand zur Oberkante */
         }
         nav a {
             font-size: 20px;
@@ -43,16 +46,22 @@
             color: black;
             cursor: pointer;
         }
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            overflow: hidden;
+            flex-grow: 1; /* Füllt den verbleibenden Platz aus */
+        }
         .content {
-            width: 100%; /* Stellt sicher, dass der Inhalt sich an die Breite anpasst */
-            height: auto;
-            padding: 10px;
             display: flex;
             justify-content: flex-start;
-            align-items: flex-end;
+            align-items: flex-start;
             gap: 10px;
-            overflow-x: auto; /* Ermöglicht horizontales Scrollen */
-            white-space: nowrap; /* Verhindert Umbrüche, damit der Inhalt horizontal scrollt */
+            overflow-x: auto;
+            white-space: nowrap;
+            flex-grow: 1; /* Inhalt soll flexibler sein */
         }
         .scroll-box {
             display: flex;
@@ -74,25 +83,13 @@
         }
         .arrows {
             display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        .arrows {
-            width: 40px;
-            height: auto;
-            background: transparent;
-            padding: 2px; /* Beibehaltung des bestehenden Wertes */
-            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-
         .arrows .arrow {
-            color: red; /* Setzt die Farbe auf Rot */
-            font-size: 36px; /* Größe des Icons */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            color: red;
+            font-size: 36px;
         }
     </style>
 </head>
@@ -106,21 +103,24 @@
         </nav>
     </header>
 
-    <div class="content">
-        <div class="scroll-box">
-            <div>Je Suis Le Papillon À Travers Le Jardin (2021) Magazin, DIN A4</div>
-            <a href="https://neuwork.shop/products/...">https://neuwork.shop/products/...</a>
-            <img src="https://via.placeholder.com/727x510" alt="Project Image 1">
+    <div class="content-wrapper">
+        <div class="arrows">
+            <span class="material-icons arrow">arrow_left</span>
         </div>
-        <div class="scroll-box">
-            <img src="https://via.placeholder.com/727x510" alt="Project Image 2">
+        <div class="content">
+            <div class="scroll-box">
+                <div>Je Suis Le Papillon À Travers Le Jardin (2021) Magazin, DIN A4</div>
+                <a href="https://neuwork.shop/products/...">https://neuwork.shop/products/...</a>
+                <img src="https://via.placeholder.com/727x510" alt="Project Image 1">
+            </div>
+            <div class="scroll-box">
+                <img src="https://via.placeholder.com/727x510" alt="Project Image 2">
+            </div>
+            <!-- Füge weitere scroll-boxen hier hinzu -->
         </div>
-        <!-- Füge weitere scroll-boxen hier hinzu -->
-    </div>
-
-    <div class="arrows">
-        <span class="material-icons arrow">arrow_left</span>
-        <span class="material-icons arrow">arrow_right</span>
+        <div class="arrows">
+            <span class="material-icons arrow">arrow_right</span>
+        </div>
     </div>
 </body>
 </html>
