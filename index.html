@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
             width: 100vw;
@@ -52,29 +51,27 @@
             width: 100%;
             padding: 10px;
         }
-.content {
-    display: flex;
-    justify-content: left;
-    align-items: flex-start;
-    gap: 10px;
-    overflow-x: auto; /* Make sure this is enabled */
-    white-space: nowrap;
-    width: 100%; /* Make sure the content section has a width */
-}
+        .content {
+            display: flex;
+            justify-content: left;
+            align-items: flex-start;
+            gap: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
         }
-.scroll-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Bild wird nach unten verschoben */
-    height: 100%;
-    text-align: left;
-}
-.scroll-box img {
-    width: 400px;
-    height: auto;
-    align-self: flex-end; /* Bild bleibt am unteren Rand */
-    margin-top: 10px;
-}
+        .scroll-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Bild wird nach unten verschoben */
+            height: 100%;
+            text-align: left;
+        }
+        .scroll-box img {
+            width: 400px;
+            height: auto;
+            align-self: flex-end; /* Bild bleibt am unteren Rand */
+            margin-top: 10px;
+        }
 
         .scroll-box h2 {
             font-size: 24px;
@@ -96,13 +93,13 @@
             font-size: 36px;
         }
         @media (prefers-color-scheme: dark) {
-    body {
-        background-color: #fc4022;
-    }
-    .arrows .arrow {
-        color: rgb(0, 255, 0); /* Green arrows in dark mode */
-    }
-}
+            body {
+                background-color: #fc4022;
+            }
+            .arrows .arrow {
+                color: rgb(0, 255, 0); /* Green arrows in dark mode */
+            }
+        }
     </style>
 </head>
 <body>
@@ -130,8 +127,8 @@
         </div>
         <div class="arrows-wrapper">
             <div class="arrows">
-                <span class="material-icons arrow">arrow_left</span>
-                <span class="material-icons arrow">arrow_right</span>
+                <span class="arrow arrow_left">&lt;</span>
+                <span class="arrow arrow_right">&gt;</span>
             </div>
         </div>
 
@@ -151,8 +148,8 @@
         </div>
         <div class="arrows-wrapper">
             <div class="arrows">
-                <span class="material-icons arrow">arrow_left</span>
-                <span class="material-icons arrow">arrow_right</span>
+                <span class="arrow arrow_left">&lt;</span>
+                <span class="arrow arrow_right">&gt;</span>
             </div>
         </div>
 
@@ -167,8 +164,8 @@
         </div>
         <div class="arrows-wrapper">
             <div class="arrows">
-<span class="material-icons arrow arrow_left">arrow_left</span>
-<span class="material-icons arrow arrow_right">arrow_right</span>
+                <span class="arrow arrow_left">&lt;</span>
+                <span class="arrow arrow_right">&gt;</span>
             </div>
         </div>
     </div>
