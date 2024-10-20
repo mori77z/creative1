@@ -63,12 +63,12 @@
     height: 100%;
     text-align: left;
 }
-        .scroll-box img {
-            width: 400px;
-            height: auto;
-            align-self: flex-end; /* Bild bleibt am unteren Rand */
-            margin-top: 10px;
-        }
+.scroll-box img {
+    width: 400px;
+    height: auto;
+    align-self: flex-start; /* Align to the start of the flexbox */
+    margin-top: auto; /* Push image to the bottom of the container */
+}
         .scroll-box h2 {
             font-size: 24px;
             font-weight: normal; /* Not bold */
