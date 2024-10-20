@@ -47,29 +47,39 @@
             gap: 10px;
             padding: 10px;
         }
-        .content {
-            display: flex;
-            justify-content: left;
-            align-items: flex-start;
-            gap: 10px;
-            overflow-x: auto;
-            white-space: nowrap;
-            width: 100%; /* Set the width */
-        }
+     .content {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+}
+
 .scroll-box {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes the content apart */
-    height: 100%;
+    justify-content: flex-start; /* Keep content at the top */
+    align-items: flex-start; /* Align content to start */
+    height: 100%; /* Ensure this takes the full available height */
     text-align: left;
 }
 
 .scroll-box img {
-    align-self: flex-end; /* Stays at the bottom */
     width: 400px;
     height: auto;
-    margin-top: auto; /* Ensures it always sticks to the bottom */
+    margin-top: auto; /* Push image to the bottom */
 }
+
+.scroll-box h2, .scroll-box p, .scroll-box a {
+    flex-shrink: 0; /* Prevent shrinking for text content */
+}
+
+.scroll-box:empty {
+    justify-content: flex-end; /* Push the image to the bottom if there's no content */
+}
+
         .scroll-box h2 {
             font-size: 24px;
             font-weight: normal; /* Not bold */
