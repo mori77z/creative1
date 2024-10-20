@@ -56,14 +56,16 @@
     white-space: nowrap;
     width: 100%;
 }
-
 .scroll-box {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: flex-end; /* Pushes the image container to the bottom */
     align-items: flex-start;
     height: 300px; /* Fixed height for the scroll box */
     text-align: left;
+    width: auto; /* Allow width to adjust based on content */
+    max-width: 400px; /* Max width of 400px */
+    overflow: hidden;
 }
 
 .info {
@@ -86,6 +88,7 @@
 .img-container {
     flex-grow: 1; /* Allow the image container to grow and take the remaining space */
     width: 100%; /* Full width */
+    height: 200px; /* Fixed height of 200px */
     overflow: hidden;
 }
 
