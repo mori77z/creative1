@@ -102,6 +102,24 @@
                 background-color: #fc4022;
             }
         }
+@media (min-width: 768px) {
+    h1 {
+        font-size: 48px; /* Larger font size for desktop */
+    }
+    .scroll-box img {
+        width: 800px; /* Larger image for desktop */
+    }
+    /* Fix the content overflow on desktop */
+    .content {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+    /* Ensure nav doesn't overflow */
+    nav {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
     </style>
 </head>
 <body>
