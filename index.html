@@ -3,314 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moritz Gauss Portfolio</title>
+    <title>Moritz Gauss</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Helvetica', sans-serif;
-            overflow-x: hidden;
-            padding: 20px;
+            width: 1440px;
+            height: 679px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-family: Helvetica, sans-serif;
         }
-
         header {
-            text-align: center;
-            padding: 20px 0;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            height: 69px;
         }
-
-        header h1 {
-            font-size: 36px;
-            cursor: pointer;
+        .header-title {
+            padding-left: 10px;
+            font-size: 30px;
+            font-weight: 400;
+            line-height: 36px;
+            color: black;
         }
-
-        /* Tab styles */
-        .tab-container {
+        nav {
+            width: 100%;
+            padding: 0 10px;
             display: flex;
             justify-content: space-between;
-            max-width: 100%;
-            overflow-x: auto;
-            white-space: nowrap;
-            padding: 0 10px;
+            align-items: center;
         }
-
-        .tab {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            flex: 1 0 auto; /* Flex-grow and shrink */
-            text-align: center;
-            background: lightgrey;
-            margin: 0 5px;
-            min-width: 80px; /* Minimum width for tabs */
-        }
-
-        .tab.active {
-            background: black;
-            color: white;
-            text-decoration: underline;
-        }
-
-        .tab-content {
-            display: none;
-            margin-top: 20px;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Image carousel */
-        .carousel {
-            display: flex;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .carousel img {
-            max-width: 100%;
-            height: auto;
-            margin-right: 10px;
-        }
-
-        .carousel-wrapper {
-            position: relative;
-        }
-
-        .carousel-wrapper .prev, .carousel-wrapper .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: black;
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .carousel-wrapper .prev {
-            left: 0;
-        }
-
-        .carousel-wrapper .next {
-            right: 0;
-        }
-
-        /* See more section */
-        .see-more {
-            cursor: pointer;
-            text-decoration: underline;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-
-        .see-more.italic {
-            font-style: italic;
-        }
-
-        /* Overlay */
-        #overlay, #project-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            z-index: 10;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        #overlay.active, #project-overlay.active {
-            display: block;
-        }
-
-        #overlay h1, #project-overlay h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        #overlay p, #project-overlay p {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        #overlay a, #project-overlay a {
-            color: blue;
-            text-decoration: none;
-        }
-
-        #overlay a:hover, #project-overlay a:hover {
-            text-decoration: underline;
-        }
-
-        #back-button, #project-back {
-            cursor: pointer;
-            font-size: 18px;
+        nav a {
+            font-size: 19px;
+            line-height: 22.8px;
             text-decoration: underline;
             color: black;
-            margin-top: 20px;
         }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 28px;
-            }
-
-            .tab {
-                font-size: 14px; /* Anpassung der Tab-Größe auf Mobilgeräten */
-            }
-
-            #overlay h1, #project-overlay h1 {
-                font-size: 24px;
-            }
-
-            #overlay p, #project-overlay p {
-                font-size: 16px;
-            }
+        .content {
+            width: 720px;
+            height: 600px;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            gap: 10px;
         }
-
-        @media (max-width: 450px) {
-            header h1 {
-                font-size: 24px; /* Kleinere Schriftgröße auf sehr kleinen Bildschirmen */
-            }
-
-            .tab {
-                font-size: 12px; /* Weitere Anpassung für sehr kleine Bildschirme */
-            }
-
-            .carousel img {
-                width: 100%; /* Bilder auf die Breite des Bildschirms skalieren */
-                height: auto;
-            }
+        .content-left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .content-left div {
+            font-size: 20px;
+            line-height: 24px;
+            color: black;
+        }
+        .content-left a {
+            color: #1100FF;
+        }
+        img {
+            width: 727.17px;
+            height: 510.23px;
+        }
+        .arrows {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .arrow {
+            width: 56.28px;
+            height: 48.74px;
+            background: #F3E600;
+            border: 3px solid #1D1D1B;
+            padding: 4px 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .arrow.rotate {
+            transform: rotate(180deg);
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="header-title">Moritz Gauss</div>
+        <nav>
+            <a href="#">Graphics</a>
+            <span>Photo</span>
+            <span>Video</span>
+            <a href="#">Drawings</a>
+            <span>Textiles</span>
+        </nav>
+    </header>
 
-<header>
-    <h1 id="name" onclick="showOverlay()">Moritz Gauss <span id="go-back" style="font-size: 16px; display: none;">(Go Back)</span></h1>
-</header>
-
-<!-- Tab Navigation -->
-<div class="tab-container">
-    <div class="tab active" onclick="showTab(0)">Project 1</div>
-    <div class="tab" onclick="showTab(1)">Project 2</div>
-</div>
-
-<!-- Tab Content -->
-<div id="tab-content-0" class="tab-content active">
-    <h2>Project 1 Title</h2>
-    <div class="carousel-wrapper">
-        <div class="carousel" id="carousel-1">
-            <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Placeholder 1">
-            <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Placeholder 2">
+    <div class="content">
+        <div class="content-left">
+            <div>Je Suis Le Papillon À Travers Le Jardin (2021) Magazin, DIN A4</div>
+            <a href="https://neuwork.shop/products/...">https://neuwork.shop/products/...</a>
+            <img src="https://via.placeholder.com/727x510" alt="Project Image 1">
         </div>
-        <span class="prev" onclick="prevSlide('carousel-1')">◀</span>
-        <span class="next" onclick="nextSlide('carousel-1')">▶</span>
-    </div>
-    <p>Short description of Project 1. <a href="#">Link</a></p>
-    <span class="see-more" onclick="toggleSeeMore(this)">See More</span>
-</div>
-
-<div id="tab-content-1" class="tab-content">
-    <h2>Project 2 Title</h2>
-    <div class="carousel-wrapper">
-        <div class="carousel" id="carousel-2">
-            <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Placeholder 1">
-            <img src="https://i.pinimg.com/736x/53/c5/0c/53c50c5302081c44e6d32e2cb6ea0c50.jpg" alt="Placeholder 2">
+        <div>
+            <img src="https://via.placeholder.com/727x510" alt="Project Image 2">
         </div>
-        <span class="prev" onclick="prevSlide('carousel-2')">◀</span>
-        <span class="next" onclick="nextSlide('carousel-2')">▶</span>
     </div>
-    <p>Short description of Project 2. <a href="#">Link</a></p>
-    <span class="see-more" onclick="toggleSeeMore(this)">See More</span>
-</div>
 
-<!-- Contact Overlay -->
-<div id="overlay">
-    <h1>Moritz Gauss <span onclick="hideOverlay()" style="font-size: 16px;">(Go Back)</span></h1>
-    <p>Address: St.-Pauls-Platz 5</p>
-    <p>City: 80336 München</p>
-    <p>Mobil: <a href="tel:+4916092870315">+49 16092870315</a></p>
-    <p>Email: <a href="mailto:lieberniko@googlemail.com">lieberniko@googlemail.com</a></p>
-    <p>Instagram: <a href="https://www.instagram.com/nikolaidinosaur" target="_blank">@nikolaidinosaur</a></p>
-    <span id="back-button" onclick="hideOverlay()">Go Back</span>
-</div>
-
-<!-- Project Detail Overlay -->
-<div id="project-overlay">
-    <h1>Detailed Project Info</h1>
-    <p>Here is the full detailed description of the project.</p>
-    <span id="project-back" onclick="hideProjectOverlay()">Go Back</span>
-</div>
-
-<script>
-    // Show the overlay with contact information
-    function showOverlay() {
-        document.getElementById('overlay').classList.add('active');
-        document.getElementById('go-back').style.display = 'inline'; // Zeigt "Go Back" an
-    }
-
-    // Hide the overlay and return to main page content
-    function hideOverlay() {
-        document.getElementById('overlay').classList.remove('active');
-        document.getElementById('go-back').style.display = 'none'; // Versteckt "Go Back"
-    }
-
-    // Tab switching functionality
-    function showTab(tabIndex) {
-        let tabs = document.querySelectorAll('.tab');
-        let contents = document.querySelectorAll('.tab-content');
-
-        tabs.forEach(tab => tab.classList.remove('active'));
-        contents.forEach(content => content.classList.remove('active'));
-
-        tabs[tabIndex].classList.add('active');
-        contents[tabIndex].classList.add('active');
-    }
-
-    // Carousel functionality
-    function nextSlide(carouselId) {
-        const carousel = document.getElementById(carouselId);
-        carousel.appendChild(carousel.firstElementChild);
-    }
-
-    function prevSlide(carouselId) {
-        const carousel = document.getElementById(carouselId);
-        carousel.insertBefore(carousel.lastElementChild, carousel.firstElementChild);
-    }
-
-    // Toggle the See More functionality
-    function toggleSeeMore(element) {
-        const content = element.previousElementSibling; // Der vorherige Absatz (Beschreibung)
-        const overlay = document.getElementById('project-overlay');
-
-        if (overlay.classList.contains('active')) {
-            overlay.classList.remove('active'); // Blende das Overlay aus
-            element.innerText = "See More"; // Zurücksetzen des Texts
-            element.classList.remove('italic'); // Entferne den Italic-Stil
-        } else {
-            overlay.classList.add('active'); // Blende das Overlay ein
-            element.innerText = "See Less"; // Ändere den Text
-            element.classList.add('italic'); // Füge den Italic-Stil hinzu
-        }
-    }
-
-    // Show the project detail overlay
-    function showProjectOverlay() {
-        document.getElementById('project-overlay').classList.add('active');
-    }
-
-    // Hide the project detail overlay
-    function hideProjectOverlay() {
-        document.getElementById('project-overlay').classList.remove('active');
-    }
-</script>
-
+    <div class="arrows">
+        <div class="arrow rotate"></div>
+        <div class="arrow"></div>
+    </div>
 </body>
 </html>
