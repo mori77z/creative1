@@ -87,14 +87,20 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            padding-left: 20px;
-            padding-bottom: 20px;
             gap: 10px;
         }
         .arrows .arrow {
             color: red;
             font-size: 36px;
         }
+        @media (prefers-color-scheme: dark) {
+    body {
+        background-color: #fc4022;
+    }
+    .arrows .arrow {
+        color: rgb(0, 255, 0); /* Green arrows in dark mode */
+    }
+}
     </style>
 </head>
 <body>
