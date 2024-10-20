@@ -21,7 +21,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            padding: 10px;
+            padding: 10px 20px; /* Gleiches Padding auf beiden Seiten */
             gap: 6px;
             height: 60px;
         }
@@ -33,7 +33,7 @@
         }
         nav {
             width: 100%;
-            padding: 0 10px;
+            padding: 0 20px; /* Gleiches Padding auf beiden Seiten */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -52,16 +52,16 @@
             justify-content: space-between;
             flex-grow: 1;
             width: 100%;
-            padding: 10px 0;
+            padding: 10px 20px; /* Gleiches Padding auf beiden Seiten */
         }
         .content {
             display: flex;
             justify-content: center;
-            align-items: flex-end; /* Richtet den Content unten aus */
+            align-items: flex-end;
             gap: 10px;
             overflow-x: auto;
             white-space: nowrap;
-            padding: 10px;
+            padding: 10px 0;
         }
         .scroll-box {
             display: flex;
@@ -83,9 +83,11 @@
         }
         .arrows-wrapper {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start; /* Pfeile nach links schieben */
             align-items: center;
-            padding: 10px 0; /* Abstand zwischen Inhalt und Pfeilen */
+            padding-left: 20px; /* Gleiches Padding links wie der Rest */
+            padding-bottom: 20px;
+            gap: 10px; /* Weniger Abstand zwischen den Pfeilen */
         }
         .arrows .arrow {
             color: red;
@@ -113,14 +115,11 @@
             <div class="scroll-box">
                 <img src="https://via.placeholder.com/727x510" alt="Project Image 2">
             </div>
-            <!-- Weitere scroll-boxen hier -->
         </div>
 
         <div class="arrows-wrapper">
             <div class="arrows">
                 <span class="material-icons arrow">arrow_left</span>
-            </div>
-            <div class="arrows">
                 <span class="material-icons arrow">arrow_right</span>
             </div>
         </div>
