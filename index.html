@@ -55,6 +55,98 @@
     overflow-x: auto;
     white-space: nowrap;
     width: 100%;
+}
+.scroll-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Pushes the image container to the bottom */
+    align-items: flex-start;
+    height: 300px; /* Fixed height for the scroll box */
+    text-align: left;
+    width: 400px; /* Max width of 400px */
+    overflow: hidden;
+}
+
+.info {
+    height: 100px; /* Fixed height for the info section */
+    text-align: left;
+}
+
+.info h2 {
+    font-size: 24px;
+    font-weight: normal; /* Not bold */
+    margin: 0;
+}
+
+.info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Image container takes remaining space */
+.img-container {
+    width: auto; /* Full width */
+    height: 200px; /* Fixed height of 200px */
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%; /* Full height of the container */
+    object-fit: fill; /* Ensure image scales and covers the container */
+}
+
+ .arrows-wrapper {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+        }
+        .arrows .arrow {
+            font-size: 36px;
+            cursor: pointer;
+        }
+        .arrow_left {
+            color: red;
+        }
+        .arrow_right {
+            color: blue;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #fc4022;
+            }
+         }
+    @media (min-width: 768px) {
+   
+    h1 {
+        font-size: 48px; /* Larger font size for desktop */
+    }
+     .scroll-box {
+    width: 600px;
+    height: 500px; /* Ensure this takes the full available height */
+    }
+         .info {
+        height: 150px; /* Increase the height of the info section on desktop */
+    }
+
+    .img-container {
+        height: 350px;
+    }
+         
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Moritz Gauss</h1>
+     </header>
+        <nav>
+            <a href="#">Photo</a>
+            <a href="#">Video</a>
+            <a href="#">Textiles</a>
+        </nav>
+
 <div class="main-container">
     <!-- Erstes Projekt mit Text und Bild -->
     <div class="content">
@@ -160,6 +252,7 @@
         </div>
     </div>
 </div>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
