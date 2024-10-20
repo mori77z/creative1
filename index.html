@@ -60,35 +60,42 @@
 .scroll-box {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Keep content at the top */
+    justify-content: flex-start;
     align-items: flex-start;
-    height: 300px;
+    height: 300px; /* Fixed height for the scroll box */
     text-align: left;
-    overflow: hidden; /* Prevent overflow */
 }
-       .scroll-box h2 {
-            font-size: 24px;
-            font-weight: normal; /* Not bold */
-            margin: 0;
-        }
-        .scroll-box p {
-            font-size: 16px;
-            margin: 5px 0;
-        }
 
+.info {
+    height: 100px; /* Fixed height for the info section */
+    text-align: left;
+}
+
+.info h2 {
+    font-size: 24px;
+    font-weight: normal; /* Not bold */
+    margin: 0;
+}
+
+.info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Image container takes remaining space */
 .img-container {
-    width: 200px; /* Fixed width for normal */
-    height: auto;
-    overflow: hidden; /* To prevent the image from overflowing the container */
+    flex-grow: 1; /* Allow the image container to grow and take the remaining space */
+    width: 100%; /* Full width */
+    overflow: hidden;
 }
 
 .img-container img {
-    width: 100%; /* The image will take 100% of the container's width */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Ensure there's no inline gap */
+    width: 100%;
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Ensure image scales and covers the container */
 }
 
-        .arrows-wrapper {
+ .arrows-wrapper {
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -109,20 +116,26 @@
                 background-color: #fc4022;
             }
          }
-        @media (min-width: 768px) {
+    @media (min-width: 768px) {
+   
     h1 {
         font-size: 48px; /* Larger font size for desktop */
     }
      .scroll-box {
     height: 500px; /* Ensure this takes the full available height */
-    
-    scroll-box img {
+    }
+    .scroll-box img {
         width: 600px; /* Larger image for desktop */
         margin-top: 20px; /* Push image to the bottom */
     }
-        .img-container {
-        width: 300px; /* Larger image container for desktop */
+         .info {
+        height: 150px; /* Increase the height of the info section on desktop */
     }
+
+    .img-container {
+        width: 100%;
+    }
+         
 }
     </style>
 </head>
@@ -140,10 +153,14 @@
     <!-- Erstes Projekt mit Text und Bild -->
     <div class="content">
         <div class="scroll-box">
-            <h2>Le Voyage Imaginaire (2020)</h2>
-            <p>Fotobuch, Hardcover</p>
-            <a href="https://placeholder.shop/products/...">https://placeholder.shop/products/...</a>
-            <img src="https://raw.githubusercontent.com/mori77z/digital/refs/heads/main/material/Bildschirmfoto%202024-03-14%20um%2022.09.50.jpeg" alt="Le Voyage Imaginaire 2020">
+                        <div class="info">
+        <h2>Le Voyage Imaginaire (2020)</h2>
+         <p>Fotobuch, Hardcover</p>
+          <a href="https://placeholder.shop/products/...">https://placeholder.shop/products/...</a>
+            </div>
+           <div class="img-container">
+        <img src="https://raw.githubusercontent.com/mori77z/digital/refs/heads/main/material/Bildschirmfoto%202024-03-14%20um%2022.09.50.jpeg" alt="Le Voyage Imaginaire 2020">
+        </div>
         </div>
         <div class="scroll-box">
             <img src="https://raw.githubusercontent.com/mori77z/digital/refs/heads/main/material/IMG_0061.JPG" alt="Image 2">
