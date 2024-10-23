@@ -1,141 +1,142 @@
-body {
-    width: 100%;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    font-family: Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+   body {
+            width: 100%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            font-family: Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-}
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px;
+        }
 
-h1 {
-    font-size: 30px;
-    font-weight: normal;
-    line-height: 36px;
-    color: black;
-    font-family: Georgia, serif;
-    margin: 0;
-}
+        h1 {
+            font-size: 30px;
+            font-weight: normal;
+            line-height: 36px;
+            color: black;
+            font-family: Georgia, serif;
+            margin: 0;
+        }
 
-h1 a {
-    text-decoration: none;
-    color: black;
-}
+        h1 a {
+            text-decoration: none;
+            color: black;
+        }
 
-h1 a:hover {
-    text-decoration: underline;
-    font-style: italic; 
-}
+        h1 a:hover {
+            text-decoration: underline;
+            font-style: italic; 
+        }
 
-nav {
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 10px;
-}
+        nav {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
 
-/* Navigation styling */
-nav a {
-    font-size: 20px;
-    line-height: 22px;
-    text-decoration: underline;
-    color: black;
-    cursor: pointer;
-}
+        /* Navigation styling */
+        nav a {
+            font-size: 20px;
+            line-height: 22px;
+            text-decoration: underline;
+            color: black;
+            cursor: pointer;
+        }
 
-/* Hover effect for nav links */
-nav a:hover {
-    font-family: Georgia, serif;
-    font-style: italic;
-}
+        /* Hover effect for nav links */
+        nav a:hover {
+            font-family: Georgia, serif;
+            font-style: italic;
+        }
 
-/* Active tab styling */
-nav a.active {
-    font-family: Georgia, serif;
-    font-style: italic;
-    text-decoration: underline; /* Make it underlined for active state */
-}
+        /* Active tab styling */
+        nav a.active {
+            font-family: Georgia, serif;
+            font-style: italic;
+            text-decoration: underline; /* Make it underlined for active state */
+        }
 
-.main-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-}
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+        }
 
-.content {
-    display: flex;
-    justify-content: left;
-    align-items: flex-start;
-    gap: 10px;
-    overflow-x: auto;
-    white-space: nowrap;
-    width: 100%;
-}
+        .content {
+            display: flex;
+            justify-content: left;
+            align-items: flex-start;
+            gap: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+            width: 100%;
+        }
 
-.scroll-box {
-    align-items: flex-start;
-    height: auto;
-    width: 400px;
-    text-align: left;
-    flex: 0 0 auto;
-}
+        .scroll-box {
+            align-items: flex-start;
+            height: auto;
+            width: 400px;
+            text-align: left;
+            flex: 0 0 auto;
+        }
 
-.info {
-    height: 100px;
-    overflow: hidden; /* Prevents overflow */
-}
+        .info {
+            height: 100px;
+            overflow: hidden; /* Prevents overflow */
+            font-size: 12px; /* Adjust initial font size */
+            transition: font-size 0.2s; /* Smooth transition for scaling */
+        }
 
-.info h2 {
-    font-size: 24px;
-    font-weight: normal;
-    margin: 0;
-}
+        .info h2 {
+            font-size: 24px;
+            font-weight: normal;
+            margin: 0;
+        }
 
-.info p {
-    font-size: 12px; /* Reduced font size */
-    margin: 5px 0;
-    transition: font-size 0.2s; /* Smooth transition for scaling */
-}
+        .info p {
+            margin: 5px 0;
+            transition: font-size 0.2s; /* Smooth transition for scaling */
+        }
 
-.img-container {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 4;
-    overflow: hidden;
-}
+        .img-container {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+        }
 
-.img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    cursor: pointer; /* Pointer for images */
-}
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer; /* Pointer for images */
+        }
 
-.arrows-wrapper {
-    display: flex;
-    justify-content: center; /* Center arrows */
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px; /* Space above arrows */
-}
+        .arrows-wrapper {
+            display: flex;
+            justify-content: center; /* Center arrows */
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px; /* Space above arrows */
+        }
 
-.arrows .arrow {
-    font-size: 36px;
-    cursor: pointer;
-}
+        .arrows .arrow {
+            font-size: 36px;
+            cursor: pointer;
+        }
 
-.arrow_left, .arrow_right {
-    color: blue;
-}
+        .arrow_left, .arrow_right {
+            color: blue;
+        }
 
 /* Overlay styles */
 .overlay {
@@ -153,11 +154,15 @@ nav a.active {
 
 .overlay-content {
     position: relative;
+    width: 50vw; /* Set overlay width to 50% of viewport */
+    max-height: 80vh; /* Limit height for larger images */
+    overflow: hidden; /* Hide overflow */
 }
 
 .overlay img {
-    max-width: 90%;
-    max-height: 80%;
+    width: 100%; /* Image takes full width of overlay */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any bottom space */
 }
 
 .close {
@@ -167,6 +172,7 @@ nav a.active {
     font-size: 30px;
     color: white;
     cursor: pointer;
+    z-index: 1100; /* Ensure it is above the image */
 }
 
 .overlay-navigation {
@@ -175,6 +181,11 @@ nav a.active {
     align-items: center;
     color: white;
     margin-top: 10px;
+    position: absolute; /* Position arrows within overlay */
+    bottom: 10px; /* Position at the bottom */
+    left: 0;
+    right: 0;
+    padding: 0 20px; /* Add padding for spacing */
 }
 
 .nav {
@@ -184,21 +195,25 @@ nav a.active {
 
 .image-index {
     font-size: 20px;
+    position: absolute; /* Position index in the top left */
+    top: 10px;
+    left: 20px; /* Space from left edge */
+    color: white;
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #fc4022;
-    }
-}
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #fc4022;
+            }
+        }
 
-@media (min-width: 768px) {
-    h1 {
-        font-size: 48px;
-    }
-    
-    .scroll-box {
-        width: 600px;
-        height: auto;
-    }
-}
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 48px;
+            }
+            
+            .scroll-box {
+                width: 600px;
+                height: auto;
+            }
+        }
