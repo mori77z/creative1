@@ -1,12 +1,12 @@
 body {
-            width: 100%;
-            background: white;
-            display: flex;
-            flex-direction: column;
-            font-family: Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+    width: 100%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
 header {
     display: flex;
@@ -20,7 +20,7 @@ h1 {
     font-weight: normal;
     line-height: 36px;
     color: black;
-    font-family: Helvetic, sans-serif;
+    font-family: Helvetica, sans-serif;
     margin: 0;
 }
 
@@ -42,7 +42,6 @@ nav {
     margin-bottom: 10px;
 }
 
-
 nav a {
     font-size: 20px;
     line-height: 22px;
@@ -62,78 +61,77 @@ nav a.active {
     text-decoration: underline; 
 }
 
-        .main-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            padding: 10px;
-        }
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
 
-        .content {
-            display: flex;
-            justify-content: left;
-            align-items: flex-start;
-            gap: 10px;
-            overflow-x: auto;
-            white-space: nowrap;
-            width: 100%;
-        }
+.content {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+}
 
-        .scroll-box {
-            align-items: flex-start;
-            height: auto;
-            width: 400px;
-            text-align: left;
-            flex: 0 0 auto;
-        }
+.scroll-box {
+    align-items: flex-start;
+    height: auto;
+    width: 400px;
+    text-align: left;
+    flex: 0 0 auto;
+}
 
-        .info {
-            height: 100px;
-            overflow: hidden;
-            font-size: 12px;
-        }
+.info {
+    height: 100px;
+    overflow: hidden;
+    font-size: 12px;
+}
 
-        .info h2 {
-            font-size: 24px;
-            font-weight: normal;
-            margin: 0;
-        }
+.info h2 {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+}
 
-        .info p {
-            margin: 5px 0;
-        }
+.info p {
+    margin: 5px 0;
+}
 
-        .img-container {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 3 / 4;
-            overflow: hidden;
-        }
+.img-container {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
 
-        .img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            cursor: pointer;
-        }
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
 
-        .arrows-wrapper {
-            display: flex;
-            justify-content: left;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
+.arrows-wrapper {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
 
-        .arrows .arrow {
-            font-size: 36px;
-            cursor: pointer;
-        }
+.arrows .arrow {
+    font-size: 36px;
+    cursor: pointer;
+}
 
-        .arrow_left, .arrow_right {
-            color: black;
-        }
-
+.arrow_left, .arrow_right {
+    color: black;
+}
 
 .overlay {
     position: fixed;
@@ -197,19 +195,19 @@ nav a.active {
     color: white;
 }
 
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #fc4022;
-            }
-        }
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #fc4022;
+    }
+}
 
-        @media (min-width: 768px) {
-            h1 {
-                font-size: 48px;
-            }
-            
-            .scroll-box {
-                width: 600px;
-                height: auto;
-            }
-        }
+@media (min-width: 768px) {
+    h1 {
+        font-size: 48px;
+    }
+    
+    .scroll-box {
+        width: 600px;
+        height: auto;
+    }
+}
