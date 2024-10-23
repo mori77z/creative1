@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const navLinks = document.querySelectorAll(".nav-link");
     const logo = document.getElementById('logo');
     const header = document.querySelector('header');
+    const scrollBoxes = document.querySelectorAll('.scroll-box');
 
     // Arrow scroll functionality
     arrows.forEach(arrow => {
@@ -29,13 +30,64 @@ document.addEventListener("DOMContentLoaded", function () {
             navLinks.forEach(nav => nav.classList.remove('active')); // Remove active class from all links
             link.classList.add('active'); // Add active class to clicked link
 
-            if (link.dataset.font === 'georgia') {
-                logo.classList.add('georgia'); // Apply Georgia to logo
-                header.classList.add('georgia'); // Apply Georgia to header
-            } else {
-                logo.classList.remove('georgia'); // Revert to default font
-                header.classList.remove('georgia'); // Revert header to default
+            // Set creative tab as active
+            if (link.textContent === "Creative") {
+                link.classList.add('active'); // Ensure 'Creative' link is styled as active
             }
+
+            logo.classList.toggle('georgia', link.textContent === 'Creative'); // Apply Georgia to logo
+            header.classList.toggle('georgia', link.textContent === 'Creative'); // Apply Georgia to header
         });
     });
+
+    // Image overlay gallery functionality
+    scrollBoxes.forEach(scrollBox => {
+        const images = scrollBox.querySelectorAll('.img-container img');
+        images.forEach((img, index) => {
+            img.addEventListener('click', function () {
+                openOverlayGallery(images, index);
+            });
+        });
+    });
+
+    function openOverlayGallery(images, currentIndex) {
+        const overlay = document.createElement('div');
+        overlay.className = 'overlay';
+        overlay.innerHTML = `
+            <span class="close">&times;</span>
+            <div class="overlay-content">
+                <img src="${images[currentIndex].src}" alt="Overlay Image">
+                <div class="overlay-navigation">
+                    <span class="nav prev">&lt;</span>
+                    <span class="image-index">${currentIndex + 1} / ${images.length}</span>
+                    <span class="nav next">&gt;</span>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        // Close overlay
+        overlay.querySelector('.close').onclick = function () {
+            overlay.remove();
+        };
+
+        // Navigation for overlay images
+        overlay.querySelector('.prev').onclick = function () {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateOverlayImage(images, currentIndex, overlay);
+        };
+
+        overlay.querySelector('.next').onclick = function () {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateOverlayImage(images, currentIndex, overlay);
+        };
+    }
+
+    function updateOverlayImage(images, index, overlay) {
+        const overlayImg = overlay.querySelector('img');
+        const indexDisplay = overlay.querySelector('.image-index');
+        overlayImg.src = images[index].src;
+        indexDisplay.textContent = `${index + 1} / ${images.length}`;
+    }
 });
