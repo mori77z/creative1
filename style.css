@@ -1,4 +1,4 @@
-   body {
+body {
             width: 100%;
             background: white;
             display: flex;
@@ -46,7 +46,7 @@ nav {
     transition: top 0.3s ease; /* Smooth transition */
 }
 
-/* Navigation styling */
+
 nav a {
     font-size: 20px;
     line-height: 22px;
@@ -61,17 +61,10 @@ nav a:hover {
     font-style: italic;
 }
 
-/* Active tab styling */
 nav a.active {
     font-family: Georgia, serif;
     font-style: italic;
-    text-decoration: underline; /* Make it underlined for active state */
-}
-
-/* Hide the header */
-header.hidden {
-    opacity: 0; /* Fade out */
-    visibility: hidden; /* Prevents it from being clickable */
+    text-decoration: underline; 
 }
 
         .main-container {
