@@ -150,8 +150,8 @@ nav a.active {
 
 .overlay-content {
     position: relative;
-    width: 75vw; 
-    max-height: 95vh;
+    width: 60vw; 
+    max-height: 60vw;
     overflow: hidden;
 }
 
