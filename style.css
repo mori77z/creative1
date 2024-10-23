@@ -150,27 +150,25 @@ nav a.active {
 
 .overlay-content {
     position: relative;
-    width: 60vw; 
+    width: 60vw;
+    height: auto;
     max-height: 60vw;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .overlay img {
-    width: 100%; 
+    width: 100%;
     height: auto;
-    display: block;
-    max-width: 100%;
     max-height: 100%;
     object-fit: contain;
 }
 
 .close {
     position: absolute;
-    top: -40px;
-    right: 10px;
+    top: 10px;
+    right: 20px;
     font-size: 30px;
     color: white;
     cursor: pointer;
@@ -178,30 +176,28 @@ nav a.active {
 }
 
 .overlay-navigation {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     padding: 0 20px;
+    z-index: 1100;
 }
 
 .nav {
     cursor: pointer;
     font-size: 30px;
     color: white;
-    z-index: 1100;
 }
 
 .image-index {
-    font-size: 20px;
     position: absolute;
-    bottom: -50px;
-    left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    bottom: 10px;
+    left: 20px;
+    font-size: 20px;
     color: white;
 }
 
@@ -215,7 +211,7 @@ nav a.active {
     h1 {
         font-size: 48px;
     }
-    
+
     .scroll-box {
         width: 600px;
         height: auto;
