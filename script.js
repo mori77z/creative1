@@ -29,7 +29,7 @@ images.forEach((img, index) => {
     img.addEventListener("click", () => openOverlay(index));
 });
 
-// Event listener to close overlay
+// Event listeners for closing overlay
 closeOverlay.addEventListener("click", () => {
     overlay.style.display = "none";
 });
@@ -74,10 +74,8 @@ arrowRight.forEach(arrow => {
 const resizeText = () => {
     const infoElements = document.querySelectorAll('.info');
     infoElements.forEach(info => {
-        const originalFontSize = 12; // Original font size
+        const originalFontSize = 12;
         const currentFontSize = parseInt(window.getComputedStyle(info).fontSize);
-        
-        // Check if the element overflows
         if (info.scrollHeight > info.clientHeight || info.scrollWidth > info.clientWidth) {
             info.style.fontSize = `${currentFontSize - 1}px`; // Reduce font size
         } else {
@@ -86,45 +84,5 @@ const resizeText = () => {
     });
 };
 
-// Initialize and update text size on load and resize
-window.onload = () => {
-    resizeText(); // Resize text on load
-};
-
-window.onresize = () => {
-    resizeText(); // Resize text on window resize
-};
-
-// Optional: Call resizeText on image overlay open to ensure text size is appropriate
-closeOverlay.addEventListener("click", () => {
-    overlay.style.display = "none";
-    resizeText(); // Recheck text size when closing overlay
-});
-
-// Header and nav functionality
-const header = document.querySelector('header');
-const nav = document.querySelector('nav');
-let lastScrollY = 0; // Track the last scroll position
-
-// Function to handle header and nav visibility based on scroll
-window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    
-    if (currentScrollY > 100) { 
-        // Scrolling down, hide header
-        if (currentScrollY > lastScrollY) {
-            header.classList.add('hidden'); // Hide the header
-            nav.style.position = 'fixed'; // Fix nav to the top
-            nav.style.top = '0'; // Keep it at the top
-        } else {
-            // Scrolling up, show header again
-            header.classList.remove('hidden'); // Show the header
-        }
-    } else {
-        // At the top of the page, restore original nav position
-        header.classList.remove('hidden');
-        nav.style.position = 'relative'; // Nav is relative to the content again
-    }
-    
-    lastScrollY = currentScrollY; // Update last scroll position
-});
+window.onload = resizeText; // Resize text on load
+window.onresize = resizeText; // Resize text on window resize
