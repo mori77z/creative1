@@ -9,10 +9,6 @@
         }
 
 header {
-    position: fixed;
-    top: 0; /* Position it at the top of the page */
-    left: 0; 
-    right: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -20,7 +16,6 @@ header {
     transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
     opacity: 1; /* Start fully visible */
     visibility: visible; /* Ensure it's visible initially */
-    z-index: 10; /* Ensures it’s above other content */
 }
 
 h1 {
@@ -77,15 +72,6 @@ nav a.active {
 header.hidden {
     opacity: 0; /* Fade out */
     visibility: hidden; /* Prevents it from being clickable */
-}
-
-/* Fixed position for nav when header is hidden */
-nav.fixed {
-    position: fixed;
-    top: 0; /* Stays at the top */
-    left: 0;
-    right: 0; /* Make sure it covers full width */
-    z-index: 10; /* Ensure it’s above other content */
 }
 
         .main-container {
