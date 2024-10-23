@@ -23,7 +23,7 @@ h1 {
     line-height: 36px;
     color: black;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 h1 a {
@@ -43,27 +43,26 @@ header.georgia h1 {
 }
 
 /* Navigation styling */
-nav {
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 10px;
-}
-
+/* Navigation styling */
 nav a {
     font-size: 20px;
     line-height: 22px;
     text-decoration: underline;
     color: black;
     cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;  /* Default nav font */
 }
 
-/* Active link styling: Georgia and italic */
+/* Hover effect for nav links */
+nav a:hover {
+    font-family: Georgia, serif;
+    font-style: italic;
+}
+
+/* Active tab styling */
 nav a.active {
     font-family: Georgia, serif;
     font-style: italic;
+    text-decoration: none;
 }
 
 /* Main content container */
