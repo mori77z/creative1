@@ -146,55 +146,68 @@
             color: blue;
         }
 
-        /* Overlay styles */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            display: none; /* Hide by default */
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+/* Overlay styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none; /* Hide by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
 
-        .overlay-content {
-            position: relative;
-        }
+.overlay-content {
+    position: relative;
+    width: 50vw; /* Set overlay width to 50% of viewport */
+    max-height: 80vh; /* Limit height for larger images */
+    overflow: hidden; /* Hide overflow */
+}
 
 .overlay img {
-    width: 100vw; /* Make overlay images cover the full width of the viewport */
+    width: 100%; /* Image takes full width of overlay */
     height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any bottom space */
 }
-        }
 
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-        }
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    z-index: 1100; /* Ensure it is above the image */
+}
 
-        .overlay-navigation {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            margin-top: 10px;
-        }
+.overlay-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin-top: 10px;
+    position: absolute; /* Position arrows within overlay */
+    bottom: 10px; /* Position at the bottom */
+    left: 0;
+    right: 0;
+    padding: 0 20px; /* Add padding for spacing */
+}
 
-        .nav {
-            cursor: pointer;
-            font-size: 30px;
-        }
+.nav {
+    cursor: pointer;
+    font-size: 30px;
+}
 
-        .image-index {
-            font-size: 20px;
-        }
+.image-index {
+    font-size: 20px;
+    position: absolute; /* Position index in the top left */
+    top: 10px;
+    left: 20px; /* Space from left edge */
+    color: white;
+}
 
         @media (prefers-color-scheme: dark) {
             body {
@@ -345,19 +358,19 @@
             </div>
         </div>
 
-        <!-- Overlay Section -->
-        <div class="overlay" id="image-overlay">
-            <div class="overlay-content">
-                <span class="close" id="close-overlay">×</span>
-                <img id="overlay-image" src="" alt="Overlay Image">
-                <div class="overlay-navigation">
-                    <span class="nav" id="prev-image">←</span>
-                    <span class="image-index" id="image-index"></span>
-                    <span class="nav" id="next-image">→</span>
-                </div>
-            </div>
+<!-- Overlay Section -->
+<div class="overlay" id="image-overlay">
+    <div class="overlay-content">
+        <span class="close" id="close-overlay">×</span>
+        <img id="overlay-image" src="" alt="Overlay Image">
+        <span class="image-index" id="image-index"></span> <!-- Image index in the top left -->
+        <div class="overlay-navigation">
+            <span class="nav" id="prev-image">←</span>
+            <span class="nav" id="next-image">→</span>
         </div>
     </div>
+</div>
+</div>
 <script>
 const arrowLeft = document.querySelectorAll(".arrow_left");
 const arrowRight = document.querySelectorAll(".arrow_right");
@@ -380,8 +393,8 @@ function openOverlay(index) {
 }
 
 // Function to update image index (show remaining images in current section)
-function updateImageIndex(sectionImages) {
-    const totalImagesInSection = sectionImages.length;
+function updateImageIndex() {
+    const totalImagesInSection = images.length; // total images in the current section
     imageIndex.textContent = `${currentImageIndex + 1} / ${totalImagesInSection}`;
 }
 
@@ -399,13 +412,36 @@ closeOverlay.addEventListener("click", () => {
 prevImage.addEventListener("click", () => {
     currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
     overlayImage.src = images[currentImageIndex].src;
-    updateImageIndex(images); // Pass the images in the current section
+    updateImageIndex();
 });
 
 nextImage.addEventListener("click", () => {
     currentImageIndex = (currentImageIndex + 1) % images.length;
     overlayImage.src = images[currentImageIndex].src;
-    updateImageIndex(images); // Pass the images in the current section
+    updateImageIndex();
+});
+
+// Arrow scroll functionality
+arrowLeft.forEach(arrow => {
+    arrow.addEventListener("click", function () {
+        const scrollAmount = 300;
+        const parentContent = arrow.closest('.arrows-wrapper').previousElementSibling;
+
+        if (parentContent && parentContent.classList.contains('content')) {
+            parentContent.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+    });
+});
+
+arrowRight.forEach(arrow => {
+    arrow.addEventListener("click", function () {
+        const scrollAmount = 300;
+        const parentContent = arrow.closest('.arrows-wrapper').previousElementSibling;
+
+        if (parentContent && parentContent.classList.contains('content')) {
+            parentContent.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    });
 });
 
 // Resize text if overflow
@@ -424,6 +460,6 @@ const resizeText = () => {
 
 window.onload = resizeText; // Resize text on load
 window.onresize = resizeText; // Resize text on window resize
-    </script>
+</script>
 </body>
 </html>
