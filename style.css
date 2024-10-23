@@ -1,4 +1,3 @@
-/* Basic Body Styling */
 body {
     width: 100%;
     background: white;
@@ -9,20 +8,16 @@ body {
     padding: 0;
 }
 
-/* Header with 'Moritz Gauss' */
 header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 10px;
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-    opacity: 1; /* Fully visible at the start */
-    visibility: visible; /* Visible initially */
-    z-index: 999; /* Keeps it above other content */
-    background-color: #ff3b2f; /* Adjust to your preferred header color */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 1;
+    visibility: visible;
 }
 
-/* Main Heading */
 h1 {
     font-size: 30px;
     font-weight: normal;
@@ -32,35 +27,36 @@ h1 {
     margin: 0;
 }
 
-/* Link inside the header */
 h1 a {
     text-decoration: none;
     color: black;
 }
 
-/* Hover effect for the link */
 h1 a:hover {
     text-decoration: underline;
     font-style: italic;
 }
 
-/* Navigation bar */
 nav {
+    width: 100%;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 10px;
+    position: relative; /* Default position */
     transition: top 0.3s ease; /* Smooth transition */
-    position: fixed;
-    width: 100%;
-    top: 50px; /* Adjust to the height of your header */
-    z-index: 1000;
-    background-color: white; /* Make sure the nav is visible */
-    border-bottom: 1px solid #000;
+    background: white; /* Ensures nav background color when fixed */
+    z-index: 100; /* Keeps it above the content */
 }
 
-/* Navigation links styling */
+nav.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
 nav a {
     font-size: 20px;
     line-height: 22px;
@@ -69,25 +65,22 @@ nav a {
     cursor: pointer;
 }
 
-/* Hover effect for nav links */
 nav a:hover {
     font-family: Georgia, serif;
     font-style: italic;
 }
 
-/* Active tab styling */
 nav a.active {
     font-family: Georgia, serif;
     font-style: italic;
-    text-decoration: underline; /* Keep the underline for the active state */
+    text-decoration: underline;
 }
 
-/* Hide the header */
 header.hidden {
-    opacity: 0; /* Fade out */
-    visibility: hidden; /* Prevent it from being clickable */
-    transform: translateY(-100%); /* Move header out of view */
+    opacity: 0;
+    visibility: hidden;
 }
+
 
 /* Main content container */
 .main-container {
