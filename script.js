@@ -74,8 +74,10 @@ arrowRight.forEach(arrow => {
 const resizeText = () => {
     const infoElements = document.querySelectorAll('.info');
     infoElements.forEach(info => {
-        const originalFontSize = 12;
+        const originalFontSize = 12; // Original font size
         const currentFontSize = parseInt(window.getComputedStyle(info).fontSize);
+        
+        // Check if the element overflows
         if (info.scrollHeight > info.clientHeight || info.scrollWidth > info.clientWidth) {
             info.style.fontSize = `${currentFontSize - 1}px`; // Reduce font size
         } else {
@@ -84,5 +86,32 @@ const resizeText = () => {
     });
 };
 
-window.onload = resizeText; // Resize text on load
-window.onresize = resizeText; // Resize text on window resize
+// Initialize and update text size on load and resize
+window.onload = () => {
+    resizeText(); // Resize text on load
+};
+
+window.onresize = () => {
+    resizeText(); // Resize text on window resize
+};
+
+// Optional: Call resizeText on image overlay open to ensure text size is appropriate
+closeOverlay.addEventListener("click", () => {
+    overlay.style.display = "none";
+    resizeText(); // Recheck text size when closing overlay
+});
+
+// Header and nav functionality
+const header = document.querySelector('header');
+const nav = document.querySelector('nav');
+
+// Function to hide header and show nav
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) { // Adjust this value based on when you want to hide it
+        header.classList.add('hidden'); // Hides the header
+        nav.classList.add('fixed'); // Fixes nav to the top
+    } else {
+        header.classList.remove('hidden'); // Shows the header
+        nav.classList.remove('fixed'); // Restores original positioning
+    }
+});
