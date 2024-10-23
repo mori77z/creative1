@@ -181,7 +181,6 @@ nav a.active {
     bottom: 10px;
     left: 0;
     right: 0;
-    padding: 0 20px;
 }
 
 .nav {
@@ -192,8 +191,8 @@ nav a.active {
 .image-index {
     font-size: 20px;
     position: relative;
-    top: 10px;
-    left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     color: white;
 }
 
