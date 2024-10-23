@@ -29,7 +29,7 @@ images.forEach((img, index) => {
     img.addEventListener("click", () => openOverlay(index));
 });
 
-// Event listeners for closing overlay
+// Event listener to close overlay
 closeOverlay.addEventListener("click", () => {
     overlay.style.display = "none";
 });
@@ -104,14 +104,27 @@ closeOverlay.addEventListener("click", () => {
 // Header and nav functionality
 const header = document.querySelector('header');
 const nav = document.querySelector('nav');
+let lastScrollY = 0; // Track the last scroll position
 
-// Function to hide header and show nav
+// Function to handle header and nav visibility based on scroll
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) { // Adjust this value based on when you want to hide it
-        header.classList.add('hidden'); // Hides the header
-        nav.classList.add('fixed'); // Fixes nav to the top
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > 100) { 
+        // Scrolling down, hide header
+        if (currentScrollY > lastScrollY) {
+            header.classList.add('hidden'); // Hide the header
+            nav.style.position = 'fixed'; // Fix nav to the top
+            nav.style.top = '0'; // Keep it at the top
+        } else {
+            // Scrolling up, show header again
+            header.classList.remove('hidden'); // Show the header
+        }
     } else {
-        header.classList.remove('hidden'); // Shows the header
-        nav.classList.remove('fixed'); // Restores original positioning
+        // At the top of the page, restore original nav position
+        header.classList.remove('hidden');
+        nav.style.position = 'relative'; // Nav is relative to the content again
     }
+    
+    lastScrollY = currentScrollY; // Update last scroll position
 });
