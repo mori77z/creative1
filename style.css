@@ -1,21 +1,21 @@
-body {
-    width: 100%;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    font-family: Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+   body {
+            width: 100%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            font-family: Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
 header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 10px;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    opacity: 1;
-    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+    opacity: 1; /* Start fully visible */
+    visibility: visible; /* Ensure it's visible initially */
 }
 
 h1 {
@@ -34,29 +34,19 @@ h1 a {
 
 h1 a:hover {
     text-decoration: underline;
-    font-style: italic;
+    font-style: italic; 
 }
 
 nav {
-    width: 100%;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 10px;
-    position: relative; /* Default position */
     transition: top 0.3s ease; /* Smooth transition */
-    background: white; /* Ensures nav background color when fixed */
-    z-index: 100; /* Keeps it above the content */
 }
 
-nav.fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-}
-
+/* Navigation styling */
 nav a {
     font-size: 20px;
     line-height: 22px;
@@ -65,108 +55,100 @@ nav a {
     cursor: pointer;
 }
 
+/* Hover effect for nav links */
 nav a:hover {
     font-family: Georgia, serif;
     font-style: italic;
 }
 
+/* Active tab styling */
 nav a.active {
     font-family: Georgia, serif;
     font-style: italic;
-    text-decoration: underline;
+    text-decoration: underline; /* Make it underlined for active state */
 }
 
+/* Hide the header */
 header.hidden {
-    opacity: 0;
-    visibility: hidden;
+    opacity: 0; /* Fade out */
+    visibility: hidden; /* Prevents it from being clickable */
 }
 
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+        }
 
-/* Main content container */
-.main-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-}
+        .content {
+            display: flex;
+            justify-content: left;
+            align-items: flex-start;
+            gap: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+            width: 100%;
+        }
 
-/* Flex content area */
-.content {
-    display: flex;
-    justify-content: left;
-    align-items: flex-start;
-    gap: 10px;
-    overflow-x: auto;
-    white-space: nowrap;
-    width: 100%;
-}
+        .scroll-box {
+            align-items: flex-start;
+            height: auto;
+            width: 400px;
+            text-align: left;
+            flex: 0 0 auto;
+        }
 
-/* Individual scroll box */
-.scroll-box {
-    align-items: flex-start;
-    height: auto;
-    width: 400px;
-    text-align: left;
-    flex: 0 0 auto;
-}
+        .info {
+            height: 100px;
+            overflow: hidden; /* Prevents overflow */
+            font-size: 12px; /* Adjust initial font size */
+            transition: font-size 0.2s; /* Smooth transition for scaling */
+        }
 
-/* Info section */
-.info {
-    height: 100px;
-    overflow: hidden; /* Prevents overflow */
-    font-size: 12px; /* Adjust initial font size */
-    transition: font-size 0.2s; /* Smooth transition for scaling */
-}
+        .info h2 {
+            font-size: 24px;
+            font-weight: normal;
+            margin: 0;
+        }
 
-/* Subheading inside info section */
-.info h2 {
-    font-size: 24px;
-    font-weight: normal;
-    margin: 0;
-}
+        .info p {
+            margin: 5px 0;
+            transition: font-size 0.2s; /* Smooth transition for scaling */
+        }
 
-/* Paragraph inside info section */
-.info p {
-    margin: 5px 0;
-    transition: font-size 0.2s; /* Smooth transition for scaling */
-}
+        .img-container {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+        }
 
-/* Image container */
-.img-container {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 4; /* Maintain aspect ratio */
-    overflow: hidden;
-}
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer; /* Pointer for images */
+        }
 
-/* Image styling */
-.img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure image fills container */
-    cursor: pointer; /* Pointer for images */
-}
+        .arrows-wrapper {
+            display: flex;
+            justify-content: center; /* Center arrows */
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px; /* Space above arrows */
+        }
 
-/* Arrows wrapper for navigation */
-.arrows-wrapper {
-    display: flex;
-    justify-content: center; /* Center arrows */
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px; /* Space above arrows */
-}
+        .arrows .arrow {
+            font-size: 36px;
+            cursor: pointer;
+        }
 
-/* Arrow styles */
-.arrows .arrow {
-    font-size: 36px;
-    cursor: pointer;
-}
+        .arrow_left, .arrow_right {
+            color: blue;
+        }
 
-.arrow_left, .arrow_right {
-    color: blue;
-}
-
-/* Overlay styling */
+/* Overlay styles */
 .overlay {
     position: fixed;
     top: 0;
@@ -180,22 +162,19 @@ header.hidden {
     z-index: 1000;
 }
 
-/* Content inside the overlay */
 .overlay-content {
     position: relative;
-    width: 50vw; /* 50% of viewport width */
-    max-height: 80vh; /* Limit height */
+    width: 50vw; /* Set overlay width to 50% of viewport */
+    max-height: 80vh; /* Limit height for larger images */
     overflow: hidden; /* Hide overflow */
 }
 
-/* Image inside overlay */
 .overlay img {
-    width: 100%;
+    width: 100%; /* Image takes full width of overlay */
     height: auto; /* Maintain aspect ratio */
-    display: block;
+    display: block; /* Remove any bottom space */
 }
 
-/* Close button for overlay */
 .close {
     position: absolute;
     top: 10px;
@@ -203,52 +182,48 @@ header.hidden {
     font-size: 30px;
     color: white;
     cursor: pointer;
-    z-index: 1100; /* Ensure it's above the image */
+    z-index: 1100; /* Ensure it is above the image */
 }
 
-/* Navigation inside overlay */
 .overlay-navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
-    position: absolute;
-    bottom: 10px; /* Positioned at the bottom */
+    margin-top: 10px;
+    position: absolute; /* Position arrows within overlay */
+    bottom: 10px; /* Position at the bottom */
     left: 0;
     right: 0;
-    padding: 0 20px;
+    padding: 0 20px; /* Add padding for spacing */
 }
 
-/* Overlay navigation arrows */
 .nav {
     cursor: pointer;
     font-size: 30px;
 }
 
-/* Image index in overlay */
 .image-index {
     font-size: 20px;
-    position: absolute; /* Positioned in top-left */
+    position: absolute; /* Position index in the top left */
     top: 10px;
-    left: 20px;
+    left: 20px; /* Space from left edge */
     color: white;
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #fc4022;
-    }
-}
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #fc4022;
+            }
+        }
 
-/* Larger screens (tablet and above) */
-@media (min-width: 768px) {
-    h1 {
-        font-size: 48px;
-    }
-    
-    .scroll-box {
-        width: 600px;
-        height: auto;
-    }
-}
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 48px;
+            }
+            
+            .scroll-box {
+                width: 600px;
+                height: auto;
+            }
+        }
