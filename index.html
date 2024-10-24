@@ -226,18 +226,23 @@
         </div>
     </div>
 
-<!-- Overlay Section -->
-<div class="overlay" id="image-overlay">
-    <div class="overlay-content">
-        <span class="close" id="close-overlay">×</span>
-        <img id="overlay-image" src="" alt="Overlay Image">
-        
-        <div class="overlay-navigation">
-            <span class="nav" id="prev-image"><</span>
-            <span class="image-index" id="image-index"></span>
-            <span class="nav" id="next-image">></span>
+<div class="carousel">
+    <div class="carousel-wrapper">
+        <!-- Images will be injected dynamically here, same as before -->
+        <div class="carousel-item">
+            <img src="image1.jpg" alt="Image 1">
         </div>
+        <div class="carousel-item">
+            <img src="image2.jpg" alt="Image 2">
+        </div>
+        <div class="carousel-item">
+            <img src="image3.jpg" alt="Image 3">
+        </div>
+        <!-- More images dynamically injected -->
     </div>
+    <!-- Carousel controls -->
+    <span class="carousel-control prev">&#10094;</span>
+    <span class="carousel-control next">&#10095;</span>
 </div>
 
     <script src="script.js"></script>
