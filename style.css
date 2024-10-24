@@ -65,7 +65,8 @@ nav a.active {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    overflow-x: hidden;
+    padding: 10px;
+    width: 100%;
 }
 
 .content {
@@ -74,7 +75,6 @@ nav a.active {
     align-items: flex-start;
     gap: 10px;
     padding-left: 10px;
-    padding-right: 10px;
     overflow-x: auto;
     white-space: nowrap;
     width: 100%;
@@ -92,6 +92,7 @@ nav a.active {
     height: 100px;
     overflow: hidden;
     font-size: 12px;
+    padding-left: 10px;
 }
 
 .info h2 {
@@ -124,7 +125,7 @@ nav a.active {
     align-items: center;
     gap: 10px;
     margin-top: 10px;
-    padding: 10px;
+    padding-left: 10px;
 }
 
 .arrows .arrow {
@@ -151,17 +152,17 @@ nav a.active {
 }
 
 .zoomed-image {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 70%;
+    max-height: 70%;
     object-fit: contain;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out; /* Für die Animation */
+    transition: transform 0.3s ease-in-out;
 }
 
 .zoomed-container.active {
     display: flex;
-    transform: scale(1.1) rotate(360deg); /* Bild wird vergrößert und rotiert */
     animation: fadeIn 0.3s; 
+    transform: scale(1.1) rotate(360deg); /* Bild wird vergrößert und rotiert */
 }
 
 @keyframes fadeIn {
@@ -183,7 +184,10 @@ nav a.active {
     h1 {
         font-size: 48px;
     }
-    
+    .zoomed-image {
+    max-width: 90%;
+    max-height: 90%;
+    }
     .scroll-box {
         width: 600px;
         height: auto;
