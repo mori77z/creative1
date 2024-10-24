@@ -133,56 +133,48 @@ nav a.active {
     color: black;
 }
 
-/* Mobile Styles */
-.overlay-content {
-    position: relative;
-    width: 90%; /* Use most of the screen width on mobile */
-    max-height: 80vh; /* Use viewport height for better responsiveness */
-    overflow: hidden;
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center align content */
-    background-color: rgba(0, 0, 0, 0.8); /* Optional: Dark background for better visibility */
-    border-radius: 8px; /* Optional: Rounded corners */
-    padding: 10px; /* Optional: Padding inside the overlay */
-}
-
-.overlay img {
+/* Carousel styling */
+.carousel {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    display: block;
-    max-height: 70vh; /* Keep the image contained within the overlay */
-    border-radius: 8px; /* Optional: Rounded corners for images */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none; /* Hidden by default, shown on click */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-.close {
-    position: absolute; /* Absolute positioning to keep it in the corner */
-    top: 10px; /* Distance from top */
-    right: 20px; /* Distance from right */
-    font-size: 30px;
+.carousel-wrapper {
+    display: flex;
+    width: 80%;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3em;
     color: white;
     cursor: pointer;
-    z-index: 1100;
+    z-index: 1001;
 }
 
-.overlay-navigation {
-    display: flex; /* Use flex to distribute arrows */
-    justify-content: space-between; /* Space arrows evenly */
-    width: 100%; /* Full width for arrows */
-    margin-top: 10px; /* Space between image and arrows */
-    position: relative; /* Allow positioning */
+.carousel-control.prev {
+    left: 10px;
 }
 
-.nav {
-    cursor: pointer;
-    font-size: 30px; /* Smaller size for mobile */
-    color: white; /* Ensure arrows are visible */
-}
-
-.image-index {
-    font-size: 16px; /* Smaller size for mobile */
-    color: white;
-    margin-top: 5px; /* Space between arrows and index */
+.carousel-control.next {
+    right: 10px;
 }
 
 
