@@ -65,7 +65,7 @@ nav a.active {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 10px;
+    overflow-x: hidden;
 }
 
 .content {
@@ -92,7 +92,6 @@ nav a.active {
     height: 100px;
     overflow: hidden;
     font-size: 12px;
-    padding: 10px;
 }
 
 .info h2 {
@@ -159,13 +158,9 @@ nav a.active {
     transition: transform 0.3s ease-in-out; /* Für die Animation */
 }
 
-.zoomed-image.active {
-    transform: scale(1.1) rotate(360deg); /* Bild wird vergrößert und rotiert */
-}
-
-/* Ensure it covers the whole viewport */
 .zoomed-container.active {
     display: flex;
+    transform: scale(1.1) rotate(360deg); /* Bild wird vergrößert und rotiert */
     animation: fadeIn 0.3s; 
 }
 
