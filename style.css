@@ -73,6 +73,8 @@ nav a.active {
     justify-content: left;
     align-items: flex-start;
     gap: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     overflow-x: auto;
     white-space: nowrap;
     width: 100%;
