@@ -151,10 +151,13 @@ nav a.active {
     width: 75vw; /* Frame width remains fixed */
     max-height: 80vh; /* Frame height remains fixed */
     overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align content */
 }
 
 .overlay img {
-    width: 100%; 
+    width: 100%;
     height: auto; /* Maintain aspect ratio */
     display: block;
     max-height: 80vh; /* Keep the image contained within the overlay */
@@ -171,29 +174,36 @@ nav a.active {
 }
 
 .overlay-navigation {
-    position: absolute; 
-    top: 50%; /* Center arrows vertically */
+    display: flex; /* Use flex to distribute arrows */
+    justify-content: space-between; /* Space arrows evenly */
     width: 100%; /* Full width for arrows */
-    display: flex; /* Flex layout for navigation */
-    justify-content: space-between; /* Distribute arrows */
-    transform: translateY(-50%); /* Adjust for true vertical center */
-    padding: 0 20px; /* Padding for sides */
+    margin-top: 10px; /* Space between image and arrows */
+    position: relative; /* Allow positioning */
 }
 
 .nav {
     cursor: pointer;
     font-size: 30px;
     color: white; /* Ensure arrows are visible */
-    z-index: 1200; /* Ensure arrows are on top */
 }
 
 .image-index {
     font-size: 20px;
-    position: absolute; 
-    top: 10px;
-    left: 50%; 
-    transform: translateX(-50%); /* Center index text */
     color: white;
+    margin-top: 5px; /* Space between arrows and index */
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #fc4022;
+    }
+}
+
+@media (max-width: 768px) {
+    .overlay-content {
+        width: 90vw; /* Adjust width for mobile */
+        max-height: 80vh; /* Keep the max height for mobile */
+    }
 }
 
 @media (prefers-color-scheme: dark) {
