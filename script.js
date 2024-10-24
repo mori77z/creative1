@@ -11,11 +11,13 @@ document.body.appendChild(zoomedContainer);
 // Function to open zoomed image
 function openZoomedImage(src) {
     zoomedImage.src = src;
+    zoomedImage.classList.add("active"); // Hinzufügen der aktiven Klasse für Animation
     zoomedContainer.classList.add("active");
 }
 
 // Function to close zoomed image
 function closeZoomedImage() {
+    zoomedImage.classList.remove("active"); // Entfernen der aktiven Klasse
     zoomedContainer.classList.remove("active");
 }
 
