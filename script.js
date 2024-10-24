@@ -24,21 +24,26 @@ function updateCarousel() {
     carouselWrapper.style.transform = `translateX(${offset}px)`; // Move the carousel wrapper
 }
 
+// Function to navigate to the next image
+function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % totalImages; // Move to the next image, loop back if needed
+    updateCarousel();
+}
+
+// Function to navigate to the previous image
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages; // Move to the previous image, loop back if needed
+    updateCarousel();
+}
+
 // Event listeners for image clicks to open the carousel
 images.forEach((img, index) => {
     img.addEventListener("click", () => showCarousel(index));
 });
 
 // Event listeners for carousel next/prev buttons
-nextButton.addEventListener('click', () => {
-    currentImageIndex = (currentImageIndex + 1) % totalImages; // Move to the next image, loop back if needed
-    updateCarousel();
-});
-
-prevButton.addEventListener('click', () => {
-    currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages; // Move to the previous image, loop back if needed
-    updateCarousel();
-});
+nextButton.addEventListener('click', nextImage);
+prevButton.addEventListener('click', prevImage);
 
 // Close carousel when clicking outside the image
 carousel.addEventListener('click', (e) => {
@@ -48,38 +53,41 @@ carousel.addEventListener('click', (e) => {
 });
 
 // Arrow scroll functionality for left/right arrows outside the carousel
-arrowLeft.forEach(arrow => {
-    arrow.addEventListener("click", function () {
-        const scrollAmount = 300;
+const scrollContent = (direction) => {
+    const scrollAmount = 300;
+    arrowLeft.forEach(arrow => {
         const parentContent = arrow.closest('.arrows-wrapper').previousElementSibling;
-
         if (parentContent && parentContent.classList.contains('content')) {
-            parentContent.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            parentContent.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
     });
+};
+
+arrowLeft.forEach(arrow => {
+    arrow.addEventListener("click", () => scrollContent(-1)); // Scroll left
 });
 
 arrowRight.forEach(arrow => {
-    arrow.addEventListener("click", function () {
-        const scrollAmount = 300;
-        const parentContent = arrow.closest('.arrows-wrapper').previousElementSibling;
-
-        if (parentContent && parentContent.classList.contains('content')) {
-            parentContent.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        }
-    });
+    arrow.addEventListener("click", () => scrollContent(1)); // Scroll right
 });
 
-// Event listener for resizing text if there's overflow
+// Function to resize text if there's overflow
 const resizeText = () => {
     const infoElements = document.querySelectorAll('.info');
     infoElements.forEach(info => {
         const originalFontSize = 12;
-        const currentFontSize = parseInt(window.getComputedStyle(info).fontSize);
-        if (info.scrollHeight > info.clientHeight || info.scrollWidth > info.clientWidth) {
-            info.style.fontSize = `${currentFontSize - 1}px`; // Reduce font size if overflow
-        } else {
-            info.style.fontSize = `${originalFontSize}px`; // Reset to original size
+        let currentFontSize = parseInt(window.getComputedStyle(info).fontSize);
+
+        // Reduce font size if overflow
+        while (info.scrollHeight > info.clientHeight || info.scrollWidth > info.clientWidth) {
+            currentFontSize--;
+            info.style.fontSize = `${currentFontSize}px`;
+            if (currentFontSize <= 8) break; // Stop reducing if font size is too small
+        }
+
+        // Reset to original size if no overflow
+        if (currentFontSize === originalFontSize) {
+            info.style.fontSize = `${originalFontSize}px`;
         }
     });
 };
