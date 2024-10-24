@@ -90,6 +90,7 @@ nav a.active {
     height: 100px;
     overflow: hidden;
     font-size: 12px;
+    padding: 10px;
 }
 
 .info h2 {
@@ -135,9 +136,10 @@ nav a.active {
 
 /* Updated zoomed image styling */
 .zoomed-container {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: fixed; /* Ändere von absolute auf fixed */
+    top: 50%; /* Zentrieren */
+    left: 50%; /* Zentrieren */
+    transform: translate(-50%, -50%); /* Zentrieren */
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
@@ -152,31 +154,29 @@ nav a.active {
     max-height: 90%;
     object-fit: contain;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out; /* Für die Animation */
 }
 
-.zoomed-container img {
-    transition: transform 0.3s ease-in-out;
-}
-
-.zoomed-container img:hover {
-    transform: scale(1.05); /* Slight zoom-in on hover */
+/* Entferne den Hover-Effekt */
+.zoomed-image.active {
+    transform: scale(1.1) rotate(360deg); /* Bild wird vergrößert und rotiert */
 }
 
 /* Ensure it covers the whole viewport */
 .zoomed-container.active {
     display: flex;
+    animation: fadeIn 0.3s; /* Fade-Effekt beim Anzeigen */
 }
 
-/* Optional: Add a slight fade effect */
-.zoomed-container {
-    animation: fadeIn 0.3s;
-}
-
+/* Optional: Fade-In-Animation */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
-
 
 @media (prefers-color-scheme: dark) {
     body {
