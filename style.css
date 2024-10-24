@@ -74,9 +74,11 @@ nav a.active {
     align-items: flex-start;
     gap: 10px;
     margin-left: 10px;
-    overflow-x: auto;
-    white-space: nowrap;
+    overflow-x: auto; /* Already correct */
+    white-space: nowrap; /* Already correct */
     width: 100%;
+    max-width: 100%; /* Ensures content doesn't exceed width */
+    height: 300px; /* Define height to control vertical scroll */
 }
 
 .scroll-box {
@@ -138,11 +140,10 @@ nav a.active {
 
 .zoomed-container {
     position: fixed; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    width: 100%;
-    height: 100%;
+    top: 0; /* Adjust to take the full screen */
+    left: 0; /* Adjust to take the full screen */
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
     display: none;
     justify-content: center;
@@ -150,18 +151,16 @@ nav a.active {
     z-index: 1000;
 }
 
+.zoomed-container.active {
+    display: flex;
+}
+
 .zoomed-image {
-    max-width: 70%;
-    max-height: 70%;
+    max-width: 70vw; /* Max dimensions relative to the viewport */
+    max-height: 70vh;
     object-fit: contain;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
-}
-
-.zoomed-container.active {
-    display: flex;
-    animation: fadeIn 0.3s; 
-    transform: scale(1.1) rotate(360deg); /* Bild wird vergrößert und rotiert */
 }
 
 @keyframes fadeIn {
