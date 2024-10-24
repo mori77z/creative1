@@ -134,16 +134,15 @@ nav a.active {
     color: black;
 }
 
-/* Updated zoomed image styling */
 .zoomed-container {
-    position: fixed; /* Ändere von absolute auf fixed */
-    top: 50%; /* Zentrieren */
-    left: 50%; /* Zentrieren */
-    transform: translate(-50%, -50%); /* Zentrieren */
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-    display: none; /* Hidden by default */
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -157,7 +156,6 @@ nav a.active {
     transition: transform 0.3s ease-in-out; /* Für die Animation */
 }
 
-/* Entferne den Hover-Effekt */
 .zoomed-image.active {
     transform: scale(1.1) rotate(360deg); /* Bild wird vergrößert und rotiert */
 }
@@ -165,10 +163,9 @@ nav a.active {
 /* Ensure it covers the whole viewport */
 .zoomed-container.active {
     display: flex;
-    animation: fadeIn 0.3s; /* Fade-Effekt beim Anzeigen */
+    animation: fadeIn 0.3s; 
 }
 
-/* Optional: Fade-In-Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
