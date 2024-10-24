@@ -1,58 +1,42 @@
-const arrowLeft = document.querySelectorAll(".arrow_left");
-const arrowRight = document.querySelectorAll(".arrow_right");
+// Select images and create a zoom container
 const images = document.querySelectorAll(".img-container img");
-const carousel = document.querySelector('.carousel');
-const carouselWrapper = document.querySelector('.carousel-wrapper');
-const prevButton = document.querySelector('.carousel-control.prev');
-const nextButton = document.querySelector('.carousel-control.next');
-const currentImageText = document.querySelector('.current-image');
-const totalImagesText = document.querySelector('.total-images');
+const zoomedContainer = document.createElement("div");
+const zoomedImage = document.createElement("img");
 
-let currentImageIndex = 0;
-const totalImages = images.length;
+zoomedContainer.classList.add("zoomed-container");
+zoomedImage.classList.add("zoomed-image");
+zoomedContainer.appendChild(zoomedImage);
+document.body.appendChild(zoomedContainer);
 
-// Function to show the carousel and navigate to the clicked image
-function showCarousel(index) {
-    currentImageIndex = index;
-    carousel.style.display = 'flex';
-    totalImagesText.textContent = totalImages; // Update total images
-    updateCarousel(); 
+// Function to open zoomed image
+function openZoomedImage(src) {
+    zoomedImage.src = src;
+    zoomedContainer.classList.add("active");
 }
 
-// Function to update carousel position
-function updateCarousel() {
-    const itemWidth = document.querySelector('.carousel-item').offsetWidth;
-    const offset = -(currentImageIndex * (itemWidth + 20));
-    carouselWrapper.style.transform = `translateX(${offset}px)`;
-
-    // Update the current image text
-    currentImageText.textContent = currentImageIndex + 1; // Update to 1-based index
+// Function to close zoomed image
+function closeZoomedImage() {
+    zoomedContainer.classList.remove("active");
 }
 
-// Event listeners for image clicks to open the carousel
-images.forEach((img, index) => {
-    img.addEventListener("click", () => showCarousel(index));
+// Add event listeners to images to open in zoom
+images.forEach((img) => {
+    img.addEventListener("click", () => {
+        openZoomedImage(img.src);
+    });
 });
 
-// Event listeners for carousel next/prev buttons
-nextButton.addEventListener('click', () => {
-    currentImageIndex = (currentImageIndex + 1) % totalImages;
-    updateCarousel();
-});
-
-prevButton.addEventListener('click', () => {
-    currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
-    updateCarousel();
-});
-
-// Close carousel when clicking outside the image
-carousel.addEventListener('click', (e) => {
-    if (e.target === carousel) {
-        carousel.style.display = 'none';
+// Close zoomed image when clicking outside the image
+zoomedContainer.addEventListener("click", (e) => {
+    if (e.target === zoomedContainer || e.target === zoomedImage) {
+        closeZoomedImage();
     }
 });
 
 // Arrow scroll functionality for left/right arrows outside the carousel
+const arrowLeft = document.querySelectorAll(".arrow_left");
+const arrowRight = document.querySelectorAll(".arrow_right");
+
 arrowLeft.forEach(arrow => {
     arrow.addEventListener("click", function () {
         const scrollAmount = 300;
