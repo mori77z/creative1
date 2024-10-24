@@ -148,8 +148,8 @@ nav a.active {
 
 .overlay-content {
     position: relative;
-    width: 75vw; /* Frame width remains fixed */
-    max-height: 80vh; /* Frame height remains fixed */
+    width: 75%; /* Frame width remains fixed */
+    max-height: 80%; /* Frame height remains fixed */
     overflow: hidden;
     display: flex;
     flex-direction: column; /* Stack elements vertically */
@@ -160,11 +160,11 @@ nav a.active {
     width: 100%;
     height: auto; /* Maintain aspect ratio */
     display: block;
-    max-height: 80vh; /* Keep the image contained within the overlay */
+    max-height: 80%; /* Keep the image contained within the overlay */
 }
 
 .close {
-    position: absolute; 
+    position: relative; 
     top: 10px;
     right: 20px;
     font-size: 30px;
@@ -199,19 +199,6 @@ nav a.active {
     }
 }
 
-@media (max-width: 768px) {
-    .overlay-content {
-        width: 90vw; /* Adjust width for mobile */
-        max-height: 80vh; /* Keep the max height for mobile */
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #fc4022;
-    }
-}
-
 @media (min-width: 768px) {
     h1 {
         font-size: 48px;
@@ -222,7 +209,7 @@ nav a.active {
         height: auto;
     }
         .overlay-content {
-        width: 90vw; /* Adjust width for mobile */
-        max-height: 80vh; /* Keep the max height for mobile */
+        width: 90%; /* Adjust width for mobile */
+        max-height: 80%; /* Keep the max height for mobile */
     }
 }
