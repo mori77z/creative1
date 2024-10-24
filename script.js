@@ -3,12 +3,30 @@ const arrowLeft = document.querySelectorAll(".arrow_left");
 const arrowRight = document.querySelectorAll(".arrow_right");
 const images = document.querySelectorAll(".img-container img"); // Image containers with fetched images
 const carousel = document.querySelector('.carousel');
-const carouselWrapper = document.querySelector('.carousel-wrapper');
-const prevButton = document.querySelector('.carousel-control.prev');
-const nextButton = document.querySelector('.carousel-control.next');
+const carouselWrapper = carousel.querySelector('.carousel-wrapper');
+const prevButton = carousel.querySelector('.carousel-control.prev');
+const nextButton = carousel.querySelector('.carousel-control.next');
 
 let currentImageIndex = 0; // Index to track the current image in the carousel
 const totalImages = images.length; // Total number of images in the carousel
+
+// Function to fetch images from scroll sections and populate the carousel
+function populateCarousel() {
+    const scrollBoxes = document.querySelectorAll('.scroll-box');
+
+    // Clear previous carousel items
+    carouselWrapper.innerHTML = '';
+
+    scrollBoxes.forEach(box => {
+        const img = box.querySelector('.img-container img');
+        if (img) {
+            const carouselItem = document.createElement('div');
+            carouselItem.classList.add('carousel-item');
+            carouselItem.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+            carouselWrapper.appendChild(carouselItem);
+        }
+    });
+}
 
 // Function to show carousel and navigate to the clicked image
 function showCarousel(index) {
@@ -19,31 +37,29 @@ function showCarousel(index) {
 
 // Function to update carousel position
 function updateCarousel() {
-    const itemWidth = document.querySelector('.carousel-item').offsetWidth; // Get the width of each carousel item
+    const items = carouselWrapper.children;
+    const itemWidth = items[0].offsetWidth; // Get the width of each carousel item
     const offset = -(currentImageIndex * (itemWidth + 20)); // Calculate the offset (including margins)
     carouselWrapper.style.transform = `translateX(${offset}px)`; // Move the carousel wrapper
 }
 
-// Function to navigate to the next image
-function nextImage() {
-    currentImageIndex = (currentImageIndex + 1) % totalImages; // Move to the next image, loop back if needed
-    updateCarousel();
-}
-
-// Function to navigate to the previous image
-function prevImage() {
-    currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages; // Move to the previous image, loop back if needed
-    updateCarousel();
-}
-
 // Event listeners for image clicks to open the carousel
 images.forEach((img, index) => {
-    img.addEventListener("click", () => showCarousel(index));
+    img.addEventListener("click", () => {
+        showCarousel(index);
+    });
 });
 
 // Event listeners for carousel next/prev buttons
-nextButton.addEventListener('click', nextImage);
-prevButton.addEventListener('click', prevImage);
+nextButton.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex + 1) % carouselWrapper.children.length; // Move to the next image
+    updateCarousel();
+});
+
+prevButton.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex - 1 + carouselWrapper.children.length) % carouselWrapper.children.length; // Move to the previous image
+    updateCarousel();
+});
 
 // Close carousel when clicking outside the image
 carousel.addEventListener('click', (e) => {
@@ -53,44 +69,44 @@ carousel.addEventListener('click', (e) => {
 });
 
 // Arrow scroll functionality for left/right arrows outside the carousel
-const scrollContent = (direction) => {
-    const scrollAmount = 300;
-    arrowLeft.forEach(arrow => {
+arrowLeft.forEach(arrow => {
+    arrow.addEventListener("click", function () {
+        const scrollAmount = 300;
         const parentContent = arrow.closest('.arrows-wrapper').previousElementSibling;
+
         if (parentContent && parentContent.classList.contains('content')) {
-            parentContent.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+            parentContent.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         }
     });
-};
-
-arrowLeft.forEach(arrow => {
-    arrow.addEventListener("click", () => scrollContent(-1)); // Scroll left
 });
 
 arrowRight.forEach(arrow => {
-    arrow.addEventListener("click", () => scrollContent(1)); // Scroll right
+    arrow.addEventListener("click", function () {
+        const scrollAmount = 300;
+        const parentContent = arrow.closest('.arrows-wrapper').previousElementSibling;
+
+        if (parentContent && parentContent.classList.contains('content')) {
+            parentContent.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    });
 });
 
-// Function to resize text if there's overflow
+// Event listener for resizing text if there's overflow
 const resizeText = () => {
     const infoElements = document.querySelectorAll('.info');
     infoElements.forEach(info => {
         const originalFontSize = 12;
-        let currentFontSize = parseInt(window.getComputedStyle(info).fontSize);
-
-        // Reduce font size if overflow
-        while (info.scrollHeight > info.clientHeight || info.scrollWidth > info.clientWidth) {
-            currentFontSize--;
-            info.style.fontSize = `${currentFontSize}px`;
-            if (currentFontSize <= 8) break; // Stop reducing if font size is too small
-        }
-
-        // Reset to original size if no overflow
-        if (currentFontSize === originalFontSize) {
-            info.style.fontSize = `${originalFontSize}px`;
+        const currentFontSize = parseInt(window.getComputedStyle(info).fontSize);
+        if (info.scrollHeight > info.clientHeight || info.scrollWidth > info.clientWidth) {
+            info.style.fontSize = `${currentFontSize - 1}px`; // Reduce font size if overflow
+        } else {
+            info.style.fontSize = `${originalFontSize}px`; // Reset to original size
         }
     });
 };
 
-window.onload = resizeText; // Resize text on page load
+window.onload = () => {
+    populateCarousel(); // Populate carousel on page load
+    resizeText(); // Resize text on page load
+};
 window.onresize = resizeText; // Resize text when window is resized
