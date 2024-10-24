@@ -151,6 +151,8 @@ nav a.active {
     width: 75vw; 
     max-height: 80vh;
     overflow: hidden;
+    display: flex; /* Change to flex for proper alignment */
+    align-items: center; /* Center items vertically */
 }
 
 .overlay img {
@@ -160,7 +162,7 @@ nav a.active {
 }
 
 .close {
-    position: relative;
+    position: absolute; /* Change to absolute to position correctly */
     top: 10px;
     right: 20px;
     font-size: 30px;
@@ -174,24 +176,25 @@ nav a.active {
     justify-content: space-between;
     align-items: center;
     color: white;
-    margin-top: 10px;
-    position: relative; 
-    bottom: 10px;
-    left: 0;
-    right: 0;
-    padding: 0 20px;
+    position: absolute; /* Change to absolute for positioning */
+    top: 50%; /* Center vertically */
+    width: 100%; /* Full width to cover the image */
+    transform: translateY(-50%); /* Adjust for true center */
+    padding: 0 20px; /* Padding for sides */
 }
 
 .nav {
     cursor: pointer;
     font-size: 30px;
+    z-index: 1200; /* Higher z-index to ensure visibility */
 }
 
 .image-index {
     font-size: 20px;
-    position: relative;
+    position: absolute; /* Change to absolute for positioning */
     top: 10px;
-    left: 20px;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for true center */
     color: white;
 }
 
