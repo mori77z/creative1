@@ -148,21 +148,20 @@ nav a.active {
 
 .overlay-content {
     position: relative;
-    width: 75vw; 
-    max-height: 80vh;
+    width: 75vw; /* Frame width remains fixed */
+    max-height: 80vh; /* Frame height remains fixed */
     overflow: hidden;
-    display: flex; /* Change to flex for proper alignment */
-    align-items: center; /* Center items vertically */
 }
 
 .overlay img {
     width: 100%; 
-    height: auto;
+    height: auto; /* Maintain aspect ratio */
     display: block;
+    max-height: 80vh; /* Keep the image contained within the overlay */
 }
 
 .close {
-    position: absolute; /* Change to absolute to position correctly */
+    position: absolute; 
     top: 10px;
     right: 20px;
     font-size: 30px;
@@ -172,29 +171,28 @@ nav a.active {
 }
 
 .overlay-navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    position: absolute; /* Change to absolute for positioning */
-    top: 50%; /* Center vertically */
-    width: 100%; /* Full width to cover the image */
-    transform: translateY(-50%); /* Adjust for true center */
+    position: absolute; 
+    top: 50%; /* Center arrows vertically */
+    width: 100%; /* Full width for arrows */
+    display: flex; /* Flex layout for navigation */
+    justify-content: space-between; /* Distribute arrows */
+    transform: translateY(-50%); /* Adjust for true vertical center */
     padding: 0 20px; /* Padding for sides */
 }
 
 .nav {
     cursor: pointer;
     font-size: 30px;
-    z-index: 1200; /* Higher z-index to ensure visibility */
+    color: white; /* Ensure arrows are visible */
+    z-index: 1200; /* Ensure arrows are on top */
 }
 
 .image-index {
     font-size: 20px;
-    position: absolute; /* Change to absolute for positioning */
+    position: absolute; 
     top: 10px;
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for true center */
+    left: 50%; 
+    transform: translateX(-50%); /* Center index text */
     color: white;
 }
 
@@ -212,5 +210,9 @@ nav a.active {
     .scroll-box {
         width: 600px;
         height: auto;
+    }
+        .overlay-content {
+        width: 90vw; /* Adjust width for mobile */
+        max-height: 80vh; /* Keep the max height for mobile */
     }
 }
